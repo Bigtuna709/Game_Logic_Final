@@ -5,13 +5,10 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public int totalPlayerLightPool;
-    public PlayerController playerController;
-    private void Start()
-    {
-        playerController = GetComponent<PlayerController>();
-    }
+    public Light playerLight;
+  
     public void RewardPlayerWithLight(int lightValue)
     {
-        
+        playerLight.range += lightValue;
     }
 }
