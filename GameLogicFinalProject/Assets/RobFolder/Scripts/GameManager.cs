@@ -12,6 +12,6 @@ public class GameManager : MonoBehaviour
     }
     public void RewardPlayerWithLight(int lightValue)
     {
-        playerController
+        
     }
 }
