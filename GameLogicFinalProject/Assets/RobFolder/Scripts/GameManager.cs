@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public Light playerLight;
     public float lightLoweringAmount;
+    public GameObject gameOverCanvas;
 
     private void FixedUpdate()
     {
@@ -30,5 +31,10 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(0.05f);
             playerLight.range++;
         }
+    }
+    // End the game
+    public void GameOver()
+    {
+        gameOverCanvas.SetActive(true);
     }
 }
