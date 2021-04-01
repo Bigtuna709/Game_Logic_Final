@@ -2,11 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum PickUpType
+{
+    Small,
+    Big,
+    Cheese
+}
 public class PickUpController : MonoBehaviour
 {
+    public PickUpType pickUpType;
+
     public GameManager gameMgr;
     public MeshRenderer meshRend;
     public int lightValue;
+    public int healthValue;
     public bool isPickedUp;
     private void Start()
     {
@@ -15,14 +24,11 @@ public class PickUpController : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") && !isPickedUp)
         {
-            if (!isPickedUp)
-            {
-                StartCoroutine(gameMgr.RewardPlayerWithLight(lightValue));
-                meshRend.enabled = false;
-                isPickedUp = true;
-            }
+            StartCoroutine(gameMgr.RewardPlayer(this));
+            meshRend.enabled = false;
+            isPickedUp = true;
         }
     }
 }
