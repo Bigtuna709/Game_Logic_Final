@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        //Checks if a UI movement button is pressed and moves the player if true
         Vector3 velocity = Vector3.zero;
         if (moveUpButton.IsPressed)
         {

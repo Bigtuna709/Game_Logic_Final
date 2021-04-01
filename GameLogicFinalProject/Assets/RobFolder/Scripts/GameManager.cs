@@ -7,8 +7,9 @@ public class GameManager : MonoBehaviour
     public Light playerLight;
     public float lightLoweringAmount;
 
-    private void Update()
+    private void FixedUpdate()
     {
+        // Lowers the player's light range over time
         if (playerLight.range > 0)
         {
             StartCoroutine(LowerLightOverTime());

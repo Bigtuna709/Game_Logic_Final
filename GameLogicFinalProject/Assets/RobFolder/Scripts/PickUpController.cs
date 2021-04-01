@@ -22,7 +22,6 @@ public class PickUpController : MonoBehaviour
                 StartCoroutine(gameMgr.RewardPlayerWithLight(lightValue));
                 meshRend.enabled = false;
                 isPickedUp = true;
-                //gameObject.SetActive(false);
             }
         }
     }
