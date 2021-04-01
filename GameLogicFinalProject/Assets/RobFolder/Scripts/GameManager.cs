@@ -9,7 +9,8 @@ public class GameManager : MonoBehaviour
 
     public Light playerLight;
     public float lightLoweringAmount;
-    public int totalHealth;
+    public float healthLoweringAmount;
+    public float totalHealth;
     public GameObject gameOverCanvas;
 
     private void Start()
@@ -22,6 +23,10 @@ public class GameManager : MonoBehaviour
         if (playerLight.range > 0)
         {
             StartCoroutine(LowerLightOverTime());
+        }
+        else
+        {
+            StartCoroutine(LowerHealthOverTime());
         }
     }
     // Lower the player's light range over time
@@ -57,6 +62,12 @@ public class GameManager : MonoBehaviour
             }
         }
         
+    }
+    public IEnumerator LowerHealthOverTime()
+    {
+        yield return new WaitForSeconds(1f);
+        totalHealth -= healthLoweringAmount * Time.deltaTime;
+
     }
     // End the game
     public void GameOver()
