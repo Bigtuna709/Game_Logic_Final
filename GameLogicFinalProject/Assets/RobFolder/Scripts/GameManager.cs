@@ -1,21 +1,35 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using System.Linq;
-
+public enum GameState
+{
+    Area1,
+    Area2,
+    Area3
+}
 public class GameManager : MonoBehaviour
 {
+    public GameState gameState;
+
     public List<PickUpController> allPickUps = new List<PickUpController>();
+    public List<CheckPointController> allCheckPoints = new List<CheckPointController>();
 
     public Light playerLight;
     public float lightLoweringAmount;
     public float healthLoweringAmount;
     public float totalHealth;
+
     public GameObject gameOverCanvas;
+    public Slider healthBarSlider;
+    public Slider lightLevelSlider;
 
     private void Start()
     {
         totalHealth = 100;
+        playerLight.range = 30;
+        gameState = GameState.Area1;
     }
     private void FixedUpdate()
     {
@@ -34,6 +48,7 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         playerLight.range -= lightLoweringAmount * Time.deltaTime;
+        lightLevelSlider.value = playerLight.range;
 
     }
     // fuction that will increase the player's light range or health on pick up
@@ -49,6 +64,7 @@ public class GameManager : MonoBehaviour
             {
                 yield return new WaitForSeconds(0.05f);
                 totalHealth++;
+                healthBarSlider.value = totalHealth;
             }
         }
         else
@@ -59,19 +75,35 @@ public class GameManager : MonoBehaviour
             {
                 yield return new WaitForSeconds(0.05f);
                 playerLight.range++;
+                lightLevelSlider.value = playerLight.range;
             }
         }
         
     }
+
+    // Lowers the player's health over time and checks for game over when player has 0 health
     public IEnumerator LowerHealthOverTime()
     {
         yield return new WaitForSeconds(1f);
         totalHealth -= healthLoweringAmount * Time.deltaTime;
+        healthBarSlider.value = totalHealth;
+        if(totalHealth == 0)
+        {
+            totalHealth = 0;
+            GameOver();
+        }
 
     }
+    // Function to damage the player
+    public void PlayerTakeDamage(int damage)
+    {
+        totalHealth -= damage;
+    }
+
     // End the game
     public void GameOver()
     {
         gameOverCanvas.SetActive(true);
+        Debug.Log("<color=red>Game Over</color>");
     }
 }
