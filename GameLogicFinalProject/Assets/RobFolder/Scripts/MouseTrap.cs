@@ -7,7 +7,7 @@ public class MouseTrap : MonoBehaviour
     public GameManager gameMgr;
 
     public int trapDamage;
-    public bool isSpronge;
+    public bool isSprung;
 
     private void Awake()
     {
@@ -17,11 +17,12 @@ public class MouseTrap : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            if (!isSpronge)
+            if (!isSprung)
             {
-                isSpronge = true;
-                gameMgr.PlayerTakeDamage(trapDamage);
-                gameMgr.healthBarSlider.value = gameMgr.totalHealth;
+                // Checks if it is sprung and deals damage if its not
+                isSprung = true;
+                StartCoroutine(gameMgr.PlayerTakeDamage(trapDamage));
+                Debug.Log("<color=red>You walked over a trap!</color>");
             }
         }
     }

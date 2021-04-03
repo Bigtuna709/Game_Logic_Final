@@ -64,6 +64,10 @@ public class GameManager : MonoBehaviour
             {
                 yield return new WaitForSeconds(0.05f);
                 totalHealth++;
+                if (totalHealth > 100)
+                {
+                    totalHealth = 100;
+                }
                 healthBarSlider.value = totalHealth;
             }
         }
@@ -75,6 +79,10 @@ public class GameManager : MonoBehaviour
             {
                 yield return new WaitForSeconds(0.05f);
                 playerLight.range++;
+                if(playerLight.range > 30)
+                {
+                    playerLight.range = 30;
+                }
                 lightLevelSlider.value = playerLight.range;
             }
         }
@@ -95,9 +103,14 @@ public class GameManager : MonoBehaviour
 
     }
     // Function to damage the player
-    public void PlayerTakeDamage(int damage)
+    public IEnumerator PlayerTakeDamage(int damage)
     {
-        totalHealth -= damage;
+        for (int i = 0; i < damage; i++)
+        {
+            yield return new WaitForSeconds(0.05f);
+            totalHealth--;
+            healthBarSlider.value = totalHealth;
+        }
     }
 
     // End the game

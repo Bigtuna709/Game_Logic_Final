@@ -17,6 +17,9 @@ public class CheckPointController : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
+            // Checks the gamestate of the checkpoint to the current gamestate
+            // if its different it will change the gamestate to the checkpoint
+
             var state = gameMgr.allCheckPoints.FirstOrDefault(x => x.gameState == gameState);
             if(state != null && state.gameState != gameMgr.gameState)
             {

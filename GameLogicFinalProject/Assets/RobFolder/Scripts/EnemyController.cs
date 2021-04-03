@@ -63,7 +63,7 @@ public class EnemyController : MonoBehaviour
             Debug.DrawRay(enemyEyes.transform.position, playerTarget.transform.position - enemyEyes.transform.position, Color.red, 10f);
             if(Physics.Raycast(enemyEyes.transform.position, playerTarget.transform.position - enemyEyes.transform.position, out hit))
             {
-                if(hit.transform.tag == "Player")
+                if(hit.transform.CompareTag("Player"))
                 {
                     npcAgent.destination = playerTarget.transform.position;
                 }
