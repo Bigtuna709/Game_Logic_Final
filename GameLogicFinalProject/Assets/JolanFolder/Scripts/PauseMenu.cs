@@ -2,16 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
     //Reference to button
-    public Button pauseMenuBTN;
+    private Button pauseMenuBTN;
 
     //Reference to PauseMenuCanvas
     public GameObject pauseMenuCanvas;
+    public Animator PopUpAnim;
 
     public static bool IsGamePaused = false;
+
+    private void Start()
+    {
+        Time.timeScale = 1f;
+    }
 
     public void PauseGame()
     {
@@ -26,5 +33,16 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         IsGamePaused = false;
 
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene("TerryScene");
+        Time.timeScale = 1f;
+    }
+
+    public void MainMenuScene()
+    {
+        SceneManager.LoadScene("JolanScene");
     }
 }

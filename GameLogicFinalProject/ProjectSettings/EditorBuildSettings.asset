@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/TerryFolder/TerryScene.unity
     guid: 77ebfa30f8b775b44a6e8ea220ac5a21
+  - enabled: 1
+    path: Assets/JolanFolder/JolanScene.unity
+    guid: bcb0275e1cf15d0488e616a6b47a2143
   m_configObjects: {}
