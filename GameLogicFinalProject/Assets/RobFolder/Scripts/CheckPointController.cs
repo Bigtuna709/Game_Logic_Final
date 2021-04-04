@@ -5,13 +5,7 @@ using System.Linq;
 
 public class CheckPointController : MonoBehaviour
 {
-    public GameManager gameMgr;
     public GameState gameState;
-
-    private void Awake()
-    {
-        gameMgr = FindObjectOfType<GameManager>();
-    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -20,12 +14,37 @@ public class CheckPointController : MonoBehaviour
             // Checks the gamestate of the checkpoint to the current gamestate
             // if its different it will change the gamestate to the checkpoint
 
-            var state = gameMgr.allCheckPoints.FirstOrDefault(x => x.gameState == gameState);
-            if(state != null && state.gameState != gameMgr.gameState)
+            var state = GameManager.Instance.allCheckPoints.FirstOrDefault(x => x.gameState == gameState);
+            if(state != null && state.gameState != GameState.Area3)
             {
-                gameMgr.gameState = state.gameState;
-                Debug.Log("<color=cyan>You reached " + state.gameState + " checkpoint!</color>");
+                ChangeGameState(state);
+
+                // Implement Area 2 pickups
+                PickUpsManager.Instance.PopulateNewAreaPickUps(PickUpsManager.Instance.areaTwoRatTrapLocations, ObjectPoolManager.Instance.allRatTrapsCreated);
+                PickUpsManager.Instance.PopulateNewAreaPickUps(PickUpsManager.Instance.areaTwoCheeseLocations, ObjectPoolManager.Instance.allCheeseCreated);
+                PickUpsManager.Instance.PopulateNewAreaPickUps(PickUpsManager.Instance.areaTwoBatteryLocations, ObjectPoolManager.Instance.allSmallBatteriesCreated);
+            }
+            else
+            {
+                ChangeGameState(state);
+                // Implement Area 3 pickups
+                PickUpsManager.Instance.PopulateNewAreaPickUps(PickUpsManager.Instance.areaThreeBatteryLocations, ObjectPoolManager.Instance.allSmallBatteriesCreated);
+                PickUpsManager.Instance.PopulateNewAreaPickUps(PickUpsManager.Instance.areaThreeCheeseLocations, ObjectPoolManager.Instance.allCheeseCreated);
+                PickUpsManager.Instance.PopulateNewAreaPickUps(PickUpsManager.Instance.areaThreeRatTrapLocations, ObjectPoolManager.Instance.allRatTrapsCreated);
             }
         }
+
     }
+
+    private void ChangeGameState(CheckPointController state)
+    {
+        GameManager.Instance.gameState = state.gameState;
+        Debug.Log("<color=cyan>You reached " + state.gameState + " checkpoint!</color>");
+        PickUpsManager.Instance.RemovePreviousAreaPickUps(ObjectPoolManager.Instance.allCheeseCreated);
+        PickUpsManager.Instance.RemovePreviousAreaPickUps(ObjectPoolManager.Instance.allRatTrapsCreated);
+        PickUpsManager.Instance.RemovePreviousAreaPickUps(ObjectPoolManager.Instance.allSmallBatteriesCreated);
+    }
+
+
+
 }

@@ -9,17 +9,23 @@ public enum GameState
     Area2,
     Area3
 }
-public class GameManager : MonoBehaviour
+public class GameManager : Singleton<GameManager>
 {
     public GameState gameState;
 
-    public List<PickUpController> allPickUps = new List<PickUpController>();
+    public List<PickUpController> allPickUpTypes = new List<PickUpController>();
     public List<CheckPointController> allCheckPoints = new List<CheckPointController>();
+
+    public Transform areaOneSpawnPoint;
+    public Transform areaTwoSpawnPoint;
+    public Transform areaThreeSpawnPoint;
 
     public Light playerLight;
     public float lightLoweringAmount;
     public float healthLoweringAmount;
     public float totalHealth;
+    public int maxPlayerLightRange;
+    public int maxPlayerHealth;
 
     public GameObject gameOverCanvas;
     public Slider healthBarSlider;
@@ -27,8 +33,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        totalHealth = 100;
-        playerLight.range = 30;
+        totalHealth = maxPlayerHealth;
+        playerLight.range = maxPlayerLightRange;
         gameState = GameState.Area1;
     }
     private void FixedUpdate()
@@ -48,14 +54,32 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         playerLight.range -= lightLoweringAmount * Time.deltaTime;
+        if(playerLight.range < 0)
+        {
+            playerLight.range = 0;
+        }
         lightLevelSlider.value = playerLight.range;
 
     }
+    // Lowers the player's health over time and checks for game over when player has 0 health
+    public IEnumerator LowerHealthOverTime()
+    {
+        yield return new WaitForSeconds(1f);
+        totalHealth -= healthLoweringAmount * Time.deltaTime;
+        healthBarSlider.value = totalHealth;
+        if(totalHealth < 0)
+        {
+            totalHealth = 0;
+            GameOver();
+        }
+
+    }
+
     // fuction that will increase the player's light range or health on pick up
     public IEnumerator RewardPlayer(PickUpController pickUpCtrler)
     {
         // Checks the pick ups enum
-        var pickUp = allPickUps.FirstOrDefault(x => x.pickUpType == pickUpCtrler.pickUpType);
+        var pickUp = allPickUpTypes.FirstOrDefault(x => x.pickUpType == pickUpCtrler.pickUpType);
         if (pickUp != null && pickUp.pickUpType == PickUpType.Cheese)
         {
             Debug.Log("<color=green>You picked up cheese!</color>");
@@ -64,9 +88,9 @@ public class GameManager : MonoBehaviour
             {
                 yield return new WaitForSeconds(0.05f);
                 totalHealth++;
-                if (totalHealth > 100)
+                if (totalHealth > maxPlayerHealth)
                 {
-                    totalHealth = 100;
+                    totalHealth = maxPlayerHealth;
                 }
                 healthBarSlider.value = totalHealth;
             }
@@ -79,9 +103,9 @@ public class GameManager : MonoBehaviour
             {
                 yield return new WaitForSeconds(0.05f);
                 playerLight.range++;
-                if(playerLight.range > 30)
+                if(playerLight.range > maxPlayerLightRange)
                 {
-                    playerLight.range = 30;
+                    playerLight.range = maxPlayerLightRange;
                 }
                 lightLevelSlider.value = playerLight.range;
             }
@@ -89,19 +113,6 @@ public class GameManager : MonoBehaviour
         
     }
 
-    // Lowers the player's health over time and checks for game over when player has 0 health
-    public IEnumerator LowerHealthOverTime()
-    {
-        yield return new WaitForSeconds(1f);
-        totalHealth -= healthLoweringAmount * Time.deltaTime;
-        healthBarSlider.value = totalHealth;
-        if(totalHealth == 0)
-        {
-            totalHealth = 0;
-            GameOver();
-        }
-
-    }
     // Function to damage the player
     public IEnumerator PlayerTakeDamage(int damage)
     {
@@ -112,8 +123,6 @@ public class GameManager : MonoBehaviour
             healthBarSlider.value = totalHealth;
         }
     }
-
-    // End the game
     public void GameOver()
     {
         gameOverCanvas.SetActive(true);
