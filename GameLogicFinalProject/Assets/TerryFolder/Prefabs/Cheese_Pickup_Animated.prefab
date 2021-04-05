@@ -43,6 +43,16 @@ PrefabInstance:
       propertyPath: meshRend
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3696896481816905627, guid: 4b88202b906681043b3ec7fa8e1d25a5,
+        type: 3}
+      propertyPath: lightValue
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3696896481816905627, guid: 4b88202b906681043b3ec7fa8e1d25a5,
+        type: 3}
+      propertyPath: healthValue
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 3993445343081011408, guid: 4b88202b906681043b3ec7fa8e1d25a5,
         type: 3}
       propertyPath: m_IsTrigger

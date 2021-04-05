@@ -408,7 +408,7 @@ GameObject:
   - component: {fileID: 7229012018854084338}
   - component: {fileID: 5698693568658383792}
   m_Layer: 0
-  m_Name: RatTrap_FBX
+  m_Name: RatTrap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -450,9 +450,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90daf42932cbdd84d948d11b960deee6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameMgr: {fileID: 0}
   trapDamage: 20
-  isSpronge: 0
+  isSprung: 0
+  animator: {fileID: 0}
 --- !u!65 &7229012018854084338
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -464,7 +464,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.9289703, y: 0.48245093, z: 1}
+  m_Size: {x: 3.09, y: 0.48245093, z: 1.43}
   m_Center: {x: 0.012620926, y: -0.016255632, z: 0}
 --- !u!95 &5698693568658383792
 Animator:

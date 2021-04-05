@@ -10,15 +10,17 @@ public class EnemyController : MonoBehaviour
     public float waitAtDestinationTime;
     public bool chooseRandomDestination;
 
-    private GameObject playerTarget;
+    public GameObject playerTarget;
     public GameObject enemyEyes;
     public int checkPointDestenation;
     public float minDistanceToPlayer;
     private NavMeshAgent npcAgent;
+    public Animator animator;
 
     private void Awake()
     {
         npcAgent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
     }
 
     private void Start()
@@ -65,9 +67,16 @@ public class EnemyController : MonoBehaviour
             {
                 if(hit.transform.CompareTag("Player"))
                 {
+                    animator.SetBool("isChasingPlayer", true);
                     npcAgent.destination = playerTarget.transform.position;
                 }
             }
+        }
+        else if (distanceToPlayer > minDistanceToPlayer)
+        {
+            // resume back to your waypoint if the distance is greater than minDistanceToPlayer
+            npcAgent.SetDestination(npcCheckPoints[checkPointDestenation].position);
+            animator.SetBool("isChasingPlayer", false);
         }
     }
     private IEnumerator RandomDestination()

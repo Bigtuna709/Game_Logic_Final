@@ -6,16 +6,16 @@ public class ObjectPoolManager : Singleton<ObjectPoolManager>
 {
     public GameObject cheesePickUp;
     public GameObject smallBatteryPickUp;
-    //public GameObject largeBatteryPickUp;
+    public GameObject largeBatteryPickUp;
     public GameObject ratTrap;
 
     public int numOfSmallBatteriesToMake;
-    //public int numOfLargeBatteriesToMake;
+    public int numOfLargeBatteriesToMake;
     public int numOfCheeseToMake;
     public int numOfRatTrapsToMake;
 
     public List<GameObject> allSmallBatteriesCreated = new List<GameObject>();
-    //public List<GameObject> allLargeBatteriesCreated = new List<GameObject>();
+    public List<GameObject> allLargeBatteriesCreated = new List<GameObject>();
     public List<GameObject> allCheeseCreated = new List<GameObject>();
     public List<GameObject> allRatTrapsCreated = new List<GameObject>();
 
@@ -29,10 +29,10 @@ public class ObjectPoolManager : Singleton<ObjectPoolManager>
         {
             CreateObject(smallBatteryPickUp, allSmallBatteriesCreated);
         }
-        //for(int i = 0; i < numOfLargeBatteriesToMake; i++)
-        //{
-        //    CreateObject(largeBatteryPickUp, allLargeBatteriesCreated);
-        //}
+        for(int i = 0; i < numOfLargeBatteriesToMake; i++)
+        {
+            CreateObject(largeBatteryPickUp, allLargeBatteriesCreated);
+        }
         for(int i = 0; i < numOfRatTrapsToMake; i++)
         {
             CreateObject(ratTrap, allRatTrapsCreated);

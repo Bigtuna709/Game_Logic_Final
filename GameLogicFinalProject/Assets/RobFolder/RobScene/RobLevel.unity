@@ -373,6 +373,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4653232502916451206, guid: 9d3c3b918a862e348a874173c5067d42,
         type: 3}
+      propertyPath: playerTarget
+      value: 
+      objectReference: {fileID: 1869724494}
+    - target: {fileID: 4653232502916451206, guid: 9d3c3b918a862e348a874173c5067d42,
+        type: 3}
+      propertyPath: minDistanceToPlayer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653232502916451206, guid: 9d3c3b918a862e348a874173c5067d42,
+        type: 3}
       propertyPath: waitAtDestinationTime
       value: 3
       objectReference: {fileID: 0}
@@ -889,6 +899,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653232502916451206, guid: 9d3c3b918a862e348a874173c5067d42,
+        type: 3}
+      propertyPath: playerTarget
+      value: 
+      objectReference: {fileID: 1869724494}
+    - target: {fileID: 4653232502916451206, guid: 9d3c3b918a862e348a874173c5067d42,
+        type: 3}
+      propertyPath: minDistanceToPlayer
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4653232502916451206, guid: 9d3c3b918a862e348a874173c5067d42,
         type: 3}
@@ -3629,6 +3649,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653232502916451206, guid: 9d3c3b918a862e348a874173c5067d42,
+        type: 3}
+      propertyPath: playerTarget
+      value: 
+      objectReference: {fileID: 1869724494}
+    - target: {fileID: 4653232502916451206, guid: 9d3c3b918a862e348a874173c5067d42,
+        type: 3}
+      propertyPath: minDistanceToPlayer
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4653232502916451206, guid: 9d3c3b918a862e348a874173c5067d42,
         type: 3}
@@ -8879,15 +8909,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   persistOnSceneLoad: 1
-  cheesePickUp: {fileID: 2744432951180818281, guid: 811980e5d0ad6f74a869716ff2b80fcc,
+  cheesePickUp: {fileID: 8151435389038271862, guid: a7f8a71408f27f44d8fd52b07c3e060b,
     type: 3}
-  smallBatteryPickUp: {fileID: 2744432951180818281, guid: 79e4bcba4d5585542833b3a538b90a6a,
+  smallBatteryPickUp: {fileID: 511689448318488806, guid: cf40164b8ecf8594688c54742bc1b4e3,
+    type: 3}
+  largeBatteryPickUp: {fileID: 1781461226983134322, guid: aff6f1b4445a2b144a1a2c869b09852d,
     type: 3}
   ratTrap: {fileID: 7229012018854084336, guid: 7a0637f9329239245ae714858c144853, type: 3}
   numOfSmallBatteriesToMake: 5
+  numOfLargeBatteriesToMake: 0
   numOfCheeseToMake: 5
   numOfRatTrapsToMake: 15
   allSmallBatteriesCreated: []
+  allLargeBatteriesCreated: []
   allCheeseCreated: []
   allRatTrapsCreated: []
 --- !u!4 &1212762832
@@ -12065,8 +12099,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4653232502916451206, guid: 9d3c3b918a862e348a874173c5067d42,
         type: 3}
+      propertyPath: playerTarget
+      value: 
+      objectReference: {fileID: 1869724494}
+    - target: {fileID: 4653232502916451206, guid: 9d3c3b918a862e348a874173c5067d42,
+        type: 3}
       propertyPath: distanceCheck
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653232502916451206, guid: 9d3c3b918a862e348a874173c5067d42,
+        type: 3}
+      propertyPath: minDistanceToPlayer
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4653232502916451206, guid: 9d3c3b918a862e348a874173c5067d42,
         type: 3}

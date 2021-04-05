@@ -2471,6 +2471,7 @@ GameObject:
   - component: {fileID: 3488462651750416522}
   - component: {fileID: 8235065892301702258}
   - component: {fileID: 4653232502916451206}
+  - component: {fileID: 8412209370981845289}
   m_Layer: 0
   m_Name: Roomba
   m_TagString: Untagged
@@ -2539,6 +2540,25 @@ MonoBehaviour:
   enemyEyes: {fileID: 1477378116863248007}
   checkPointDestenation: 0
   minDistanceToPlayer: 4
+--- !u!95 &8412209370981845289
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4982344991691211819}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 31f3aac5bf42bbd4da5a9731d90b8b2a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5214300292849549251
 GameObject:
   m_ObjectHideFlags: 0
