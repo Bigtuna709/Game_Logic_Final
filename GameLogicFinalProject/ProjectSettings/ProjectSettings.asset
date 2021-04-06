@@ -746,10 +746,10 @@ PlayerSettings:
     m_VersionCode: 1
     m_VersionName: 
   apiCompatibilityLevel: 6
-  cloudProjectId: 947faab0-07a9-4002-88f5-0e797f38d4cd
+  cloudProjectId: 
   framebufferDepthMemorylessMode: 0
-  projectName: Escape From The Roombots
-  organizationId: jolannecx
+  projectName: 
+  organizationId: 
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0

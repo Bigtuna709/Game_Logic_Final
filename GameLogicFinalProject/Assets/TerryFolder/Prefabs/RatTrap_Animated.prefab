@@ -407,7 +407,6 @@ GameObject:
   - component: {fileID: 2000974277392451881}
   - component: {fileID: 2000974277392451880}
   - component: {fileID: 3495827101814609002}
-  - component: {fileID: 7908547330174307646}
   m_Layer: 0
   m_Name: RatTrap_Animated
   m_TagString: Untagged
@@ -422,7 +421,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2000974277392451882}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 21.765137, y: 0.158, z: -2.3436718}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -451,8 +450,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90daf42932cbdd84d948d11b960deee6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameMgr: {fileID: 0}
   trapDamage: 20
+  trapResetTimer: 0
   isSprung: 0
   animator: {fileID: 0}
 --- !u!65 &2000974277392451880
@@ -487,22 +486,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &7908547330174307646
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2000974277392451882}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90daf42932cbdd84d948d11b960deee6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameMgr: {fileID: 0}
-  trapDamage: 10
-  isSprung: 0
-  animator: {fileID: 0}
 --- !u!1 &2507065754074650923
 GameObject:
   m_ObjectHideFlags: 0

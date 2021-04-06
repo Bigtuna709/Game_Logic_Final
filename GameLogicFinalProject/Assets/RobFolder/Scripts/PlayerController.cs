@@ -13,9 +13,13 @@ public class PlayerController : MonoBehaviour
     public PlayerButtons moveLeftButton;
     public PlayerButtons moveRightButton;
 
+    public Animator animator;
+    private Vector3 lastPosition;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        animator = GetComponentInChildren<Animator>();
     }
 
     private void FixedUpdate()
@@ -44,5 +48,8 @@ public class PlayerController : MonoBehaviour
         }
 
         rb.velocity = velocity * Time.deltaTime;
+        float speed = Vector3.Distance(lastPosition, transform.position) / Time.deltaTime;
+        animator.SetFloat("speed", speed);
+        lastPosition = this.transform.position;
     }
 }
