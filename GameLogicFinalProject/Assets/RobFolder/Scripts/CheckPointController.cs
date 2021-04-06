@@ -23,7 +23,6 @@ public class CheckPointController : MonoBehaviour
                 PickUpsManager.Instance.PopulateNewAreaPickUps(PickUpsManager.Instance.areaTwoRatTrapLocations, ObjectPoolManager.Instance.allRatTrapsCreated);
                 PickUpsManager.Instance.PopulateNewAreaPickUps(PickUpsManager.Instance.areaTwoCheeseLocations, ObjectPoolManager.Instance.allCheeseCreated);
                 PickUpsManager.Instance.PopulateNewAreaPickUps(PickUpsManager.Instance.areaTwoBatteryLocations, ObjectPoolManager.Instance.allSmallBatteriesCreated);
-                GameManager.Instance.playerRespawnPoint = GameManager.Instance.areaTwoSpawnPoint;
             }
             else
             {
@@ -32,7 +31,6 @@ public class CheckPointController : MonoBehaviour
                 PickUpsManager.Instance.PopulateNewAreaPickUps(PickUpsManager.Instance.areaThreeBatteryLocations, ObjectPoolManager.Instance.allSmallBatteriesCreated);
                 PickUpsManager.Instance.PopulateNewAreaPickUps(PickUpsManager.Instance.areaThreeCheeseLocations, ObjectPoolManager.Instance.allCheeseCreated);
                 PickUpsManager.Instance.PopulateNewAreaPickUps(PickUpsManager.Instance.areaThreeRatTrapLocations, ObjectPoolManager.Instance.allRatTrapsCreated);
-                GameManager.Instance.playerRespawnPoint = GameManager.Instance.areaThreeSpawnPoint;
             }
         }
 

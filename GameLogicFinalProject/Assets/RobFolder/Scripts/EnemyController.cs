@@ -34,10 +34,9 @@ public class EnemyController : MonoBehaviour
 
     private void ChooseDestinationOrTarget()
     {
-        float distanceToPlayer = Vector3.Distance(transform.position, playerTarget.transform.position);
-        if (distanceToPlayer < minDistanceToPlayer)
+        if (playerTarget != null)
         {
-            SpotPlayerTarget();
+            npcAgent.destination = playerTarget.transform.position;
         }
         else
         {
@@ -59,13 +58,13 @@ public class EnemyController : MonoBehaviour
 
     public void SpotPlayerTarget()
     {
-        RaycastHit hit;
-        Debug.DrawRay(enemyEyes.transform.position, playerTarget.transform.position - enemyEyes.transform.position, Color.red, 10f);
-        if(Physics.Raycast(enemyEyes.transform.position, playerTarget.transform.position - enemyEyes.transform.position, out hit))
+        float distanceToPlayer = Vector3.Distance(transform.position, playerTarget.transform.position);
+        if(distanceToPlayer < minDistanceToPlayer)
         {
-            if(hit.transform.CompareTag("Player"))
+            RaycastHit hit;
+            Debug.DrawRay(enemyEyes.transform.position, playerTarget.transform.position - enemyEyes.transform.position, Color.red, 10f);
+            if(Physics.Raycast(enemyEyes.transform.position, playerTarget.transform.position - enemyEyes.transform.position, out hit))
             {
-<<<<<<< Updated upstream
                 if(hit.transform.CompareTag("Player"))
                 {
                     animator.SetBool("isChasingPlayer", true);
@@ -79,15 +78,9 @@ public class EnemyController : MonoBehaviour
             npcAgent.SetDestination(npcCheckPoints[checkPointDestenation].position);
             animator.SetBool("isChasingPlayer", false);
         }
-=======
-                npcAgent.destination = playerTarget.transform.position;
-            }
-        }  
->>>>>>> Stashed changes
     }
     private IEnumerator RandomDestination()
     {
-        npcAgent.destination = npcCheckPoints[checkPointDestenation].position;
         float distance = Vector3.Distance(npcCheckPoints[checkPointDestenation].position, transform.position);
         if (distance < distanceCheck)
         {
@@ -100,7 +93,6 @@ public class EnemyController : MonoBehaviour
 
     private IEnumerator NotRandomDestination()
     {
-        npcAgent.destination = npcCheckPoints[checkPointDestenation].position;
         float distance = Vector3.Distance(npcCheckPoints[checkPointDestenation].position, transform.position);
         if (distance < distanceCheck)
         {

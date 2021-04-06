@@ -12,12 +12,9 @@ public enum GameState
 public class GameManager : Singleton<GameManager>
 {
     public GameState gameState;
-    public PlayerController player;
 
     public List<PickUpController> allPickUpTypes = new List<PickUpController>();
     public List<CheckPointController> allCheckPoints = new List<CheckPointController>();
-
-    public Transform playerRespawnPoint;
 
     public Transform areaOneSpawnPoint;
     public Transform areaTwoSpawnPoint;
@@ -29,7 +26,6 @@ public class GameManager : Singleton<GameManager>
     public float totalHealth;
     public int maxPlayerLightRange;
     public int maxPlayerHealth;
-    public int totalLives;
 
     public GameObject gameOverCanvas;
     public Slider healthBarSlider;
@@ -37,11 +33,9 @@ public class GameManager : Singleton<GameManager>
 
     private void Start()
     {
-        player = FindObjectOfType<PlayerController>();
         totalHealth = maxPlayerHealth;
         playerLight.range = maxPlayerLightRange;
         gameState = GameState.Area1;
-        playerRespawnPoint = areaOneSpawnPoint;
     }
     private void FixedUpdate()
     {
@@ -73,7 +67,11 @@ public class GameManager : Singleton<GameManager>
         yield return new WaitForSeconds(1f);
         totalHealth -= healthLoweringAmount * Time.deltaTime;
         healthBarSlider.value = totalHealth;
-        IsPlayerDead();
+        if(totalHealth < 0)
+        {
+            totalHealth = 0;
+            GameOver();
+        }
 
     }
 
@@ -123,37 +121,11 @@ public class GameManager : Singleton<GameManager>
             yield return new WaitForSeconds(0.05f);
             totalHealth--;
             healthBarSlider.value = totalHealth;
-            IsPlayerDead();
         }
     }
     public void GameOver()
     {
         gameOverCanvas.SetActive(true);
         Debug.Log("<color=red>Game Over</color>");
-    }
-
-    public void IsPlayerDead()
-    {
-        if (totalHealth < 0)
-        {
-            if (totalLives > 0)
-            {
-                player.gameObject.SetActive(false);
-                RespawnPlayer();
-            }
-            else
-            {
-                GameOver();
-            }
-        }
-    }
-
-    public void RespawnPlayer()
-    {
-        playerLight.range = maxPlayerLightRange;
-        totalHealth = 100;
-        totalLives--;
-        player.transform.position = playerRespawnPoint.position;
-        player.gameObject.SetActive(true);
     }
 }
