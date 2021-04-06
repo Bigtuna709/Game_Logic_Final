@@ -1387,7 +1387,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickUpType: 0
-  gameMgr: {fileID: 0}
   meshRend: {fileID: 0}
   lightValue: 50
   healthValue: 0
@@ -1500,7 +1499,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickUpType: 0
-  gameMgr: {fileID: 882192703}
   meshRend: {fileID: 0}
   lightValue: 20
   healthValue: 0
@@ -4705,18 +4703,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd5ff7098aed2514781eef051ac4a610, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  persistOnSceneLoad: 0
   gameState: 0
-  allPickUps:
-  - {fileID: 1238656489}
-  - {fileID: 135128286}
-  - {fileID: 136918459}
-  - {fileID: 2109768346}
-  - {fileID: 1551443940}
+  allPickUpTypes: []
   allCheckPoints: []
+  areaOneSpawnPoint: {fileID: 0}
+  areaTwoSpawnPoint: {fileID: 0}
+  areaThreeSpawnPoint: {fileID: 0}
   playerLight: {fileID: 223002490}
   lightLoweringAmount: 2
   healthLoweringAmount: 5
   totalHealth: 100
+  maxPlayerLightRange: 0
+  maxPlayerHealth: 0
   gameOverCanvas: {fileID: 1237778774}
   healthBarSlider: {fileID: 0}
   lightLevelSlider: {fileID: 0}
@@ -6793,7 +6792,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickUpType: 0
-  gameMgr: {fileID: 882192703}
   meshRend: {fileID: 0}
   lightValue: 20
   healthValue: 0
@@ -8221,7 +8219,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickUpType: 0
-  gameMgr: {fileID: 882192703}
   meshRend: {fileID: 0}
   lightValue: 20
   healthValue: 0
@@ -10984,7 +10981,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickUpType: 0
-  gameMgr: {fileID: 882192703}
   meshRend: {fileID: 0}
   lightValue: 20
   healthValue: 0
