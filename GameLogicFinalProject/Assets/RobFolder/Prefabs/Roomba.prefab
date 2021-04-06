@@ -2537,9 +2537,11 @@ MonoBehaviour:
   distanceCheck: 0.5
   waitAtDestinationTime: 1
   chooseRandomDestination: 0
+  playerTarget: {fileID: 0}
   enemyEyes: {fileID: 1477378116863248007}
   checkPointDestenation: 0
-  minDistanceToPlayer: 4
+  minDistanceToPlayer: 10
+  animator: {fileID: 0}
 --- !u!95 &8412209370981845289
 Animator:
   serializedVersion: 3

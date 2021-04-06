@@ -6,13 +6,14 @@ using UnityEngine.AI;
 public class EnemyController : MonoBehaviour
 {
     public List<Transform> npcCheckPoints = new List<Transform>();
+    public int enemyDamage;
     public float distanceCheck;
     public float waitAtDestinationTime;
     public bool chooseRandomDestination;
 
     public GameObject playerTarget;
     public GameObject enemyEyes;
-    public int checkPointDestenation;
+    public int checkPointDestination;
     public float minDistanceToPlayer;
     private NavMeshAgent npcAgent;
     public Animator animator;
@@ -25,7 +26,7 @@ public class EnemyController : MonoBehaviour
 
     private void Start()
     {
-        npcAgent.destination = npcCheckPoints[checkPointDestenation].position;
+        npcAgent.destination = npcCheckPoints[checkPointDestination].position;
     }
     private void Update()
     {
@@ -34,9 +35,11 @@ public class EnemyController : MonoBehaviour
 
     private void ChooseDestinationOrTarget()
     {
-        if (playerTarget != null)
+        //AI will either choose to follow the player or go to its waypoint based on player distance
+        float distanceToPlayer = Vector3.Distance(transform.position, playerTarget.transform.position);
+        if (distanceToPlayer < minDistanceToPlayer)
         {
-            npcAgent.destination = playerTarget.transform.position;
+            SpotPlayerTarget();
         }
         else
         {
@@ -46,6 +49,7 @@ public class EnemyController : MonoBehaviour
 
     private void ChooseRandomDestinationOrNot()
     {
+        animator.SetBool("isChasingPlayer", false);
         if (!chooseRandomDestination)
         {
             StartCoroutine(NotRandomDestination());
@@ -58,51 +62,53 @@ public class EnemyController : MonoBehaviour
 
     public void SpotPlayerTarget()
     {
-        float distanceToPlayer = Vector3.Distance(transform.position, playerTarget.transform.position);
-        if(distanceToPlayer < minDistanceToPlayer)
+        //npcAgent.destination = npcCheckPoints[checkPointDestination].position;
+        
+        RaycastHit hit;
+        Debug.DrawRay(enemyEyes.transform.position, playerTarget.transform.position - enemyEyes.transform.position, Color.red, 10f);
+        if(Physics.Raycast(enemyEyes.transform.position, playerTarget.transform.position - enemyEyes.transform.position, out hit))
         {
-            RaycastHit hit;
-            Debug.DrawRay(enemyEyes.transform.position, playerTarget.transform.position - enemyEyes.transform.position, Color.red, 10f);
-            if(Physics.Raycast(enemyEyes.transform.position, playerTarget.transform.position - enemyEyes.transform.position, out hit))
+            if(hit.transform.CompareTag("Player"))
             {
-                if(hit.transform.CompareTag("Player"))
-                {
-                    animator.SetBool("isChasingPlayer", true);
-                    npcAgent.destination = playerTarget.transform.position;
-                }
+                animator.SetBool("isChasingPlayer", true);
+                npcAgent.destination = playerTarget.transform.position;
             }
-        }
-        else if (distanceToPlayer > minDistanceToPlayer)
-        {
-            // resume back to your waypoint if the distance is greater than minDistanceToPlayer
-            npcAgent.SetDestination(npcCheckPoints[checkPointDestenation].position);
-            animator.SetBool("isChasingPlayer", false);
         }
     }
     private IEnumerator RandomDestination()
     {
-        float distance = Vector3.Distance(npcCheckPoints[checkPointDestenation].position, transform.position);
+        npcAgent.destination = npcCheckPoints[checkPointDestination].position;
+        float distance = Vector3.Distance(npcCheckPoints[checkPointDestination].position, transform.position);
         if (distance < distanceCheck)
         {
             int newCheckPoint = Random.Range(0, npcCheckPoints.Count);
-            checkPointDestenation = newCheckPoint;
+            checkPointDestination = newCheckPoint;
             yield return new WaitForSeconds(waitAtDestinationTime);
-            npcAgent.destination = npcCheckPoints[checkPointDestenation].position;
+            npcAgent.destination = npcCheckPoints[checkPointDestination].position;
         }
     }
 
     private IEnumerator NotRandomDestination()
     {
-        float distance = Vector3.Distance(npcCheckPoints[checkPointDestenation].position, transform.position);
+        float distance = Vector3.Distance(npcCheckPoints[checkPointDestination].position, transform.position);
         if (distance < distanceCheck)
         {
-            checkPointDestenation++;
-            if (checkPointDestenation == npcCheckPoints.Count)
+            checkPointDestination++;
+            if (checkPointDestination == npcCheckPoints.Count)
             {
-                checkPointDestenation = 0;
+                checkPointDestination = 0;
             }
             yield return new WaitForSeconds(waitAtDestinationTime);
-            npcAgent.destination = npcCheckPoints[checkPointDestenation].position;
+            npcAgent.destination = npcCheckPoints[checkPointDestination].position;
+        }
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if(collision.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("<color=red>Enemy hit player!</color>");
+            StartCoroutine(GameManager.Instance.PlayerTakeDamage(enemyDamage));
         }
     }
 }
