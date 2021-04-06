@@ -379,7 +379,11 @@ PrefabInstance:
     - target: {fileID: 4653232502916451206, guid: 9d3c3b918a862e348a874173c5067d42,
         type: 3}
       propertyPath: minDistanceToPlayer
+<<<<<<< Updated upstream
       value: 4
+=======
+      value: 10
+>>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 4653232502916451206, guid: 9d3c3b918a862e348a874173c5067d42,
         type: 3}
@@ -908,7 +912,11 @@ PrefabInstance:
     - target: {fileID: 4653232502916451206, guid: 9d3c3b918a862e348a874173c5067d42,
         type: 3}
       propertyPath: minDistanceToPlayer
+<<<<<<< Updated upstream
       value: 4
+=======
+      value: 10
+>>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 4653232502916451206, guid: 9d3c3b918a862e348a874173c5067d42,
         type: 3}
@@ -3658,7 +3666,11 @@ PrefabInstance:
     - target: {fileID: 4653232502916451206, guid: 9d3c3b918a862e348a874173c5067d42,
         type: 3}
       propertyPath: minDistanceToPlayer
+<<<<<<< Updated upstream
       value: 4
+=======
+      value: 10
+>>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 4653232502916451206, guid: 9d3c3b918a862e348a874173c5067d42,
         type: 3}
@@ -12110,7 +12122,11 @@ PrefabInstance:
     - target: {fileID: 4653232502916451206, guid: 9d3c3b918a862e348a874173c5067d42,
         type: 3}
       propertyPath: minDistanceToPlayer
+<<<<<<< Updated upstream
       value: 4
+=======
+      value: 10
+>>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 4653232502916451206, guid: 9d3c3b918a862e348a874173c5067d42,
         type: 3}
