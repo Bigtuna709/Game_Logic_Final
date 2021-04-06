@@ -5,6 +5,7 @@ using UnityEngine;
 public class MouseTrap : MonoBehaviour
 {
     public int trapDamage;
+    public int trapResetTimer;
     public bool isSprung;
     public Animator animator;
 
@@ -23,8 +24,15 @@ public class MouseTrap : MonoBehaviour
                 animator.SetBool("isSprung", true);
                 isSprung = true;
                 StartCoroutine(GameManager.Instance.PlayerTakeDamage(trapDamage));
+                StartCoroutine(ResetTrap());
                 Debug.Log("<color=red>You walked over a trap!</color>");
             }
         }
+    }
+
+    public IEnumerator ResetTrap()
+    {
+        yield return new WaitForSeconds(trapResetTimer);
+        isSprung = false;
     }
 }

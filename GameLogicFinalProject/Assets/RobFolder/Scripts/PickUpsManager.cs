@@ -43,8 +43,10 @@ public class PickUpsManager : Singleton<PickUpsManager>
     {
         foreach (Transform pickup in areaList)
         {
+            var pickUpRotation = Random.Range(0, 180);
             Transform newPickup = ObjectPoolManager.Instance.GetObject(objectlist).transform;
             newPickup.transform.position = pickup.transform.position;
+            newPickup.transform.rotation = Quaternion.Euler(0,pickUpRotation, 0);
             newPickup.gameObject.SetActive(true);
         }
     }
