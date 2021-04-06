@@ -129,8 +129,8 @@ public class GameManager : Singleton<GameManager>
     public void RespawnPlayer()
     {
         playerLight.range = maxPlayerLightRange;
-        totalHealth = maxPlayerHealth;
         player.transform.position = playerRespawnPoint.position;
+        totalHealth = maxPlayerHealth;
         player.gameObject.SetActive(true);
     }
 
@@ -154,7 +154,14 @@ public class GameManager : Singleton<GameManager>
 
     public void GameOver()
     {
-        gameOverCanvas.SetActive(true);
-        Debug.Log("<color=red>Game Over</color>");
+        if (totalHealth > 0)
+        {
+            Debug.Log("<color=blue>You escaped the maze!</color>");
+        }
+        else
+        {
+            gameOverCanvas.SetActive(true);
+            Debug.Log("<color=red>Game Over</color>");
+        }
     }
 }

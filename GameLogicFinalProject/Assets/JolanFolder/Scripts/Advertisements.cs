@@ -45,6 +45,7 @@ public class Advertisements : MonoBehaviour, IUnityAdsListener
         if(showResult == ShowResult.Finished)
         {
             Debug.Log("You have successfully gained a single life.");
+            GameManager.Instance.totalLives++;
         }
         else if (showResult == ShowResult.Skipped)
         {

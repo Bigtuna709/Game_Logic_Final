@@ -41,12 +41,12 @@ public class PickUpsManager : Singleton<PickUpsManager>
     //Populates the new area with pick ups and traps
     public void PopulateNewAreaPickUps(List<Transform> areaList, List<GameObject> objectlist)
     {
-        foreach (Transform pickup in areaList)
+        foreach (Transform pickUpLocation in areaList)
         {
             var pickUpRotation = Random.Range(0, 180);
             Transform newPickup = ObjectPoolManager.Instance.GetObject(objectlist).transform;
-            newPickup.transform.position = pickup.transform.position;
-            newPickup.transform.rotation = Quaternion.Euler(0,pickUpRotation, 0);
+            newPickup.transform.position = pickUpLocation.transform.position;
+            newPickup.transform.rotation = Quaternion.Euler(0, pickUpRotation, 0);
             newPickup.gameObject.SetActive(true);
         }
     }
