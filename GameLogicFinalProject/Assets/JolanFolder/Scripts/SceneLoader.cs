@@ -2,10 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-public class SceneLoader : MonoBehaviour
+public class SceneLoader : Singleton<SceneLoader>
 {
+    PlayerController playerController;
+
+    private void Start()
+    {
+        playerController = FindObjectOfType<PlayerController>();
+    }
+
     public void LoadScene()
     {
-        SceneManager.LoadScene("TerryScene");
+        SceneManager.LoadScene("RobLevel");
+        GameManager.Instance.gameState = GameState.Area1;
+        GameManager.Instance.playerRespawnPoint = GameManager.Instance.areaOneSpawnPoint;
+        //GameManager.Instance.player = playerController;
+        //playerController.transform.position = GameManager.Instance.areaOneSpawnPoint.position;
     }
 }

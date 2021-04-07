@@ -5,7 +5,7 @@ using UnityEngine;
 public class MouseTrap : MonoBehaviour
 {
     public int trapDamage;
-    public int trapResetTimer;
+    public int trapResetTimer = 5;
     public bool isSprung;
     public Animator animator;
 

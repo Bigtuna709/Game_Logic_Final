@@ -451,7 +451,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trapDamage: 20
-  trapResetTimer: 0
+  trapResetTimer: 5
   isSprung: 0
   animator: {fileID: 0}
 --- !u!65 &2000974277392451880

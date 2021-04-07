@@ -498,12 +498,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2068806002325333013}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.002, y: 1.353, z: 0.876}
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalPosition: {x: -0.0020000935, y: 1.9912953, z: 0.89}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2068806002962634855}
-  m_RootOrder: 1
+  m_Father: {fileID: 368677143324044696}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!108 &2068806002325333015
 Light:
@@ -517,7 +517,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.9350105, b: 0.8537736, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.6
   m_Range: 30
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -580,7 +580,7 @@ GameObject:
   - component: {fileID: 2068806002962634848}
   m_Layer: 0
   m_Name: Player(Rat)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -597,7 +597,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4270067017735749705}
-  - {fileID: 2068806002325333014}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -613,7 +612,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98c4cf5b83e41264a885c746ef6dda92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerMovementSpeed: 150
+  playerMovementSpeed: 200
   rb: {fileID: 2068806002962634849}
   moveUpButton: {fileID: 0}
   moveDownButton: {fileID: 0}
@@ -958,6 +957,7 @@ Transform:
   - {fileID: 2016763569343712445}
   - {fileID: 2277422443719747649}
   - {fileID: 6205327863162125265}
+  - {fileID: 2068806002325333014}
   m_Father: {fileID: 4270067017735749705}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

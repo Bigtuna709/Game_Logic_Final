@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/TerryFolder/TerryScene.unity
     guid: 77ebfa30f8b775b44a6e8ea220ac5a21
+  - enabled: 1
+    path: Assets/RobFolder/RobScene/RobLevel.unity
+    guid: fec24fde1352b58458ee70620f6838eb
   m_configObjects: {}

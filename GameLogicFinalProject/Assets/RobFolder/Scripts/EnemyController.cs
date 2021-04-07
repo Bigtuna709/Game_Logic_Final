@@ -62,7 +62,7 @@ public class EnemyController : MonoBehaviour
 
     public void SpotPlayerTarget()
     {
-        //npcAgent.destination = npcCheckPoints[checkPointDestination].position;
+        npcAgent.destination = npcCheckPoints[checkPointDestination].position;
         
         RaycastHit hit;
         Debug.DrawRay(enemyEyes.transform.position, playerTarget.transform.position - enemyEyes.transform.position, Color.red, 10f);

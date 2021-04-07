@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using System.Linq;
 public enum GameState
 {
+    Tutorial,
     Area1,
     Area2,
     Area3
@@ -19,6 +20,7 @@ public class GameManager : Singleton<GameManager>
 
     public Transform playerRespawnPoint;
 
+    public Transform tutorialSpawnPoint;
     public Transform areaOneSpawnPoint;
     public Transform areaTwoSpawnPoint;
     public Transform areaThreeSpawnPoint;
@@ -39,9 +41,17 @@ public class GameManager : Singleton<GameManager>
     {
         totalHealth = maxPlayerHealth;
         playerLight.range = maxPlayerLightRange;
-        gameState = GameState.Area1;
         player = FindObjectOfType<PlayerController>();
-        playerRespawnPoint = areaOneSpawnPoint;
+        if (tutorialSpawnPoint != null)
+        {
+            playerRespawnPoint = tutorialSpawnPoint;
+            gameState = GameState.Tutorial;
+        }
+        else
+        {
+            playerRespawnPoint = areaOneSpawnPoint;
+            gameState = GameState.Area1;
+        }
     }
     private void FixedUpdate()
     {
@@ -131,6 +141,7 @@ public class GameManager : Singleton<GameManager>
         playerLight.range = maxPlayerLightRange;
         player.transform.position = playerRespawnPoint.position;
         totalHealth = maxPlayerHealth;
+        healthBarSlider.value = totalHealth;
         player.gameObject.SetActive(true);
     }
 
