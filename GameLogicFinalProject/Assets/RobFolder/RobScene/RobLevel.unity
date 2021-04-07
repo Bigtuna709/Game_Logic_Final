@@ -319,7 +319,7 @@ PrefabInstance:
     - target: {fileID: 3488462651750416522, guid: 9d3c3b918a862e348a874173c5067d42,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3488462651750416522, guid: 9d3c3b918a862e348a874173c5067d42,
         type: 3}
@@ -813,7 +813,7 @@ PrefabInstance:
     - target: {fileID: 3488462651750416522, guid: 9d3c3b918a862e348a874173c5067d42,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3488462651750416522, guid: 9d3c3b918a862e348a874173c5067d42,
         type: 3}
@@ -3552,7 +3552,7 @@ PrefabInstance:
     - target: {fileID: 3488462651750416522, guid: 9d3c3b918a862e348a874173c5067d42,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3488462651750416522, guid: 9d3c3b918a862e348a874173c5067d42,
         type: 3}
@@ -8935,7 +8935,7 @@ MonoBehaviour:
     type: 3}
   ratTrap: {fileID: 7229012018854084336, guid: 7a0637f9329239245ae714858c144853, type: 3}
   numOfSmallBatteriesToMake: 5
-  numOfLargeBatteriesToMake: 0
+  numOfLargeBatteriesToMake: 5
   numOfCheeseToMake: 5
   numOfRatTrapsToMake: 15
   allSmallBatteriesCreated: []
@@ -9183,7 +9183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0afd463f6f3464b47bc427105953d23a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameState: 2
+  gameState: 3
 --- !u!65 &1223615541
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9350,7 +9350,6 @@ GameObject:
   - component: {fileID: 1234661722}
   - component: {fileID: 1234661721}
   - component: {fileID: 1234661720}
-  - component: {fileID: 1234661719}
   m_Layer: 0
   m_Name: EscapePad
   m_TagString: Untagged
@@ -9372,18 +9371,6 @@ Transform:
   m_Father: {fileID: 346347117}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1234661719
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1234661717}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1d1b864bc5968143a625f5adcc3c038, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &1234661720
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15600,7 +15587,7 @@ PrefabInstance:
     - target: {fileID: 2068806002962634855, guid: b00a354395dbe4e4c827139f0127d3fb,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2068806002962634855, guid: b00a354395dbe4e4c827139f0127d3fb,
         type: 3}
@@ -16201,7 +16188,7 @@ PrefabInstance:
     - target: {fileID: 270813728701209714, guid: e8ed854ed0c5f814b9c6cf04e49bbebd,
         type: 3}
       propertyPath: gameState
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8ed854ed0c5f814b9c6cf04e49bbebd, type: 3}

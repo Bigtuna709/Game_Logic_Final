@@ -2541,6 +2541,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 165067ca977f9324f93772fc041dd4a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  persistOnSceneLoad: 0
 --- !u!4 &805025910
 Transform:
   m_ObjectHideFlags: 0
@@ -3137,7 +3138,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 805025909}
-        m_MethodName: LoadScene
+        m_MethodName: LoadStartScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

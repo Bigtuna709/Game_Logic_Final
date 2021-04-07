@@ -19,4 +19,9 @@ public class SceneLoader : Singleton<SceneLoader>
         //GameManager.Instance.player = playerController;
         //playerController.transform.position = GameManager.Instance.areaOneSpawnPoint.position;
     }
+
+    public void LoadStartScene()
+    {
+        SceneManager.LoadScene("TerryScene");
+    }
 }
