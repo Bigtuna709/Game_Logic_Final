@@ -18,15 +18,18 @@ public class IAPManager : MonoBehaviour
     public void OnMaxIntensityIncreasePurchased()
     {
         GameManager.Instance.playerLight.intensity = 1.2f;
+       
     }
 
     public void OnMaxHealthIncreasePurchased()
     {
         GameManager.Instance.maxPlayerHealth = 200;
+        
     }
 
     public void OnMaxSpeedIncreasedPurchased()
     {
         pController.playerMovementSpeed = 450;
+    
     } 
 }

@@ -13,7 +13,7 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseMenuCanvas;
     public Animator PopUpAnim;
 
-    public static bool IsGamePaused = false;
+    public bool IsGamePaused = false;
 
     private void Start()
     {
@@ -22,16 +22,22 @@ public class PauseMenu : MonoBehaviour
 
     public void PauseGame()
     {
-        pauseMenuCanvas.SetActive(true);
-        Time.timeScale = 0f;
-        IsGamePaused = true;
+       if(IsGamePaused != true)
+        {
+            Time.timeScale = 0f;
+            pauseMenuCanvas.SetActive(true);
+            IsGamePaused = true;
+        }
     }
 
     public void ResumeGame()
     {
-        pauseMenuCanvas.SetActive(false);
-        Time.timeScale = 1f;
-        IsGamePaused = false;
+        if (IsGamePaused != false)
+        {
+            Time.timeScale = 1f;
+            pauseMenuCanvas.SetActive(false);
+            IsGamePaused = true;
+        }
 
     }
 
