@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        playerMovementSpeed += IAPTemp.Instance.newMaxSpeed;
         rb = GetComponent<Rigidbody>();
         animator = GetComponentInChildren<Animator>();
     }
