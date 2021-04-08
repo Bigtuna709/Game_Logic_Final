@@ -13,6 +13,7 @@ public class TipsTriggerScript : MonoBehaviour
     {
         tipsCanvas.SetActive(true);
         batteryTips.SetActive(true);
+        Time.timeScale = 0;
     }
 
     public void OnRoombotTipTriggerHit()
@@ -21,6 +22,7 @@ public class TipsTriggerScript : MonoBehaviour
         tipsCanvas.SetActive(true);
         roombotTips.SetActive(true);
         mazeTips.SetActive(false);
+        Time.timeScale = 0;
     }
 
     public void OnMazeTipTriggerHit()
@@ -29,10 +31,12 @@ public class TipsTriggerScript : MonoBehaviour
         roombotTips.SetActive(false);
         tipsCanvas.SetActive(true);
         mazeTips.SetActive(true);
+        Time.timeScale = 0;
     }
 
     public void BackButtonPressed()
     {
+        Time.timeScale = 1;
         tipsCanvas.SetActive(false);
     }
 }

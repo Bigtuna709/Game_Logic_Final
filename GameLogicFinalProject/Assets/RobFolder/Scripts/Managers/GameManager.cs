@@ -34,6 +34,8 @@ public class GameManager : Singleton<GameManager>
     public int totalLives;
 
     public GameObject gameOverCanvas;
+    public GameObject endGameCanvas;
+    public GameObject hud;
     public Slider healthBarSlider;
     public Slider lightLevelSlider;
 
@@ -51,6 +53,11 @@ public class GameManager : Singleton<GameManager>
         {
             playerRespawnPoint = areaOneSpawnPoint;
             gameState = GameState.Area1;
+        }
+
+        if(hud != null)
+        {
+            hud.SetActive(true);
         }
     }
     private void FixedUpdate()
@@ -138,23 +145,26 @@ public class GameManager : Singleton<GameManager>
 
     public void RespawnPlayer()
     {
+        hud.SetActive(true);
         playerLight.range = maxPlayerLightRange;
         player.transform.position = playerRespawnPoint.position;
         totalHealth = maxPlayerHealth;
         healthBarSlider.value = totalHealth;
         player.gameObject.SetActive(true);
+        Time.timeScale = 1;
     }
 
     public void IsPlayerDead()
     {
-        if (totalHealth < 0)
+        if (totalHealth <= 0)
         {
+            totalLives--;
             StopAllCoroutines();
-            if (totalLives > 0)
+            if (totalLives >= 1)
             {
                 player.gameObject.SetActive(false);
-                totalLives--;
                 RespawnPlayer();
+                totalHealth = maxPlayerHealth;
             }
             else
             {
@@ -167,12 +177,33 @@ public class GameManager : Singleton<GameManager>
     {
         if (totalHealth > 0)
         {
+            hud.SetActive(false);
+            endGameCanvas.SetActive(true);
+            Time.timeScale = 0.4f;
             Debug.Log("<color=blue>You escaped the maze!</color>");
         }
         else
         {
             gameOverCanvas.SetActive(true);
+            Time.timeScale = 0;
             Debug.Log("<color=red>Game Over</color>");
+        }
+    }
+
+    public void OnExtralifeGained()
+    {
+        if(gameState != GameState.Tutorial)
+        {
+            gameState = GameState.Area1;
+            playerRespawnPoint = areaOneSpawnPoint;
+            RespawnPlayer();
+            totalHealth = maxPlayerHealth;
+        }
+        else
+        {
+            playerRespawnPoint = tutorialSpawnPoint;
+            RespawnPlayer();
+            totalHealth = maxPlayerHealth;
         }
     }
 }

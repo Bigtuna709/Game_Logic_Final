@@ -10,6 +10,7 @@ public class GameOverTriggerArea : MonoBehaviour
         {
             //GameManager.Instance.GameOver();
             SceneLoader.Instance.LoadScene();
+            GameManager.Instance.gameState = GameState.Area1;
         }
     }
 }
