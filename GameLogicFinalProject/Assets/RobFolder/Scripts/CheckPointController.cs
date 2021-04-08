@@ -28,6 +28,7 @@ public class CheckPointController : MonoBehaviour
             else
             {
                 ChangeGameState(state);
+
                 // Implement Area 3 pickups
                 PickUpsManager.Instance.PopulateNewAreaPickUps(PickUpsManager.Instance.areaThreeBatteryLocations, ObjectPoolManager.Instance.allLargeBatteriesCreated);
                 PickUpsManager.Instance.PopulateNewAreaPickUps(PickUpsManager.Instance.areaThreeCheeseLocations, ObjectPoolManager.Instance.allCheeseCreated);
@@ -45,6 +46,7 @@ public class CheckPointController : MonoBehaviour
         PickUpsManager.Instance.RemovePreviousAreaPickUps(ObjectPoolManager.Instance.allCheeseCreated);
         PickUpsManager.Instance.RemovePreviousAreaPickUps(ObjectPoolManager.Instance.allRatTrapsCreated);
         PickUpsManager.Instance.RemovePreviousAreaPickUps(ObjectPoolManager.Instance.allSmallBatteriesCreated);
+        PickUpsManager.Instance.RemovePreviousAreaPickUps(ObjectPoolManager.Instance.allLargeBatteriesCreated);
         GameManager.Instance.totalLives++;
     }
 
