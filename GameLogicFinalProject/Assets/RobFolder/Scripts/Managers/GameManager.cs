@@ -31,7 +31,7 @@ public class GameManager : Singleton<GameManager>
     public float totalHealth;
     public int maxPlayerLightRange;
     public int maxPlayerHealth;
-    public int totalLives;
+    public int totalLives = 3;
 
     public GameObject gameOverCanvas;
     public GameObject endGameCanvas;
