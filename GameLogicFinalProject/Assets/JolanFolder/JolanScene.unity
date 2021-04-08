@@ -329,6 +329,7 @@ GameObject:
   - component: {fileID: 36814438}
   - component: {fileID: 36814437}
   - component: {fileID: 36814436}
+  - component: {fileID: 36814440}
   m_Layer: 5
   m_Name: ExtraHealthBTN
   m_TagString: Untagged
@@ -368,6 +369,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36a5f511b0d8142cba0aeb92d0b264c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  productId: com.group2.afraidofthedark.extraHealth
+  buttonType: 0
+  consumePurchase: 1
+  onPurchaseComplete:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 870315396}
+        m_MethodName: OnMaxHealthIncreasePurchased
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onPurchaseFailed:
+    m_PersistentCalls:
+      m_Calls: []
+  titleText: {fileID: 0}
+  descriptionText: {fileID: 0}
+  priceText: {fileID: 0}
 --- !u!114 &36814437
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -459,6 +483,169 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 36814434}
   m_CullTransparentMesh: 0
+--- !u!114 &36814440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 36814434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -745406591, guid: 220224b43fc464c28bc0e8de8f54a432, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Trigger:
+    m_IsTriggerExpanded: 1
+    m_Type: 1
+    m_LifecycleEvent: 0
+    m_ApplyRules: 0
+    m_Rules:
+      m_Rules: []
+    m_TriggerBool: 0
+    m_InitTime: 5
+    m_RepeatTime: 5
+    m_Repetitions: 0
+    repetitionCount: 0
+  m_EventPayload:
+    m_IsEventExpanded: 1
+    m_StandardEventType: IAPTransaction
+    m_Parameters:
+      m_Parameters:
+      - m_RequirementType: 1
+        m_GroupID: 
+        m_Tooltip: In what context (store, gift, reward) was the item acquired?
+        m_Name: transaction_context
+        m_Value:
+          m_EditingCustomValue: 0
+          m_PopupIndex: 0
+          m_CustomValue: 
+          m_FixedType: 1
+          m_EnumType: 
+          m_EnumTypeIsCustomizable: 0
+          m_CanDisable: 0
+          m_PropertyType: 1
+          m_ValueType: System.String
+          m_Value: 
+          m_Target:
+            m_Target: {fileID: 0}
+            m_Path: 
+            m_ValidTypeNames:
+            - System.String
+            m_Type: System.String
+            m_EnumType: 
+      - m_RequirementType: 1
+        m_GroupID: 
+        m_Tooltip: How much did the item cost?
+        m_Name: price
+        m_Value:
+          m_EditingCustomValue: 0
+          m_PopupIndex: 0
+          m_CustomValue: 
+          m_FixedType: 1
+          m_EnumType: 
+          m_EnumTypeIsCustomizable: 0
+          m_CanDisable: 0
+          m_PropertyType: 1
+          m_ValueType: System.Single
+          m_Value: 0.99
+          m_Target:
+            m_Target: {fileID: 0}
+            m_Path: 
+            m_ValidTypeNames:
+            - System.Single
+            m_Type: System.Single
+            m_EnumType: 
+      - m_RequirementType: 1
+        m_GroupID: 
+        m_Tooltip: A name or unique identifier for the acquired item.
+        m_Name: item_id
+        m_Value:
+          m_EditingCustomValue: 0
+          m_PopupIndex: 0
+          m_CustomValue: 
+          m_FixedType: 1
+          m_EnumType: 
+          m_EnumTypeIsCustomizable: 0
+          m_CanDisable: 0
+          m_PropertyType: 1
+          m_ValueType: System.String
+          m_Value: extra_health
+          m_Target:
+            m_Target: {fileID: 0}
+            m_Path: 
+            m_ValidTypeNames:
+            - System.String
+            m_Type: System.String
+            m_EnumType: 
+      - m_RequirementType: 2
+        m_GroupID: 
+        m_Tooltip: The category of the item that was acquired.
+        m_Name: item_type
+        m_Value:
+          m_EditingCustomValue: 0
+          m_PopupIndex: 0
+          m_CustomValue: 
+          m_FixedType: 1
+          m_EnumType: 
+          m_EnumTypeIsCustomizable: 0
+          m_CanDisable: 1
+          m_PropertyType: 1
+          m_ValueType: System.String
+          m_Value: 
+          m_Target:
+            m_Target: {fileID: 0}
+            m_Path: 
+            m_ValidTypeNames:
+            - System.String
+            m_Type: System.String
+            m_EnumType: 
+      - m_RequirementType: 2
+        m_GroupID: 
+        m_Tooltip: The name or id of the level where the item was acquired.
+        m_Name: level
+        m_Value:
+          m_EditingCustomValue: 0
+          m_PopupIndex: 0
+          m_CustomValue: 
+          m_FixedType: 1
+          m_EnumType: 
+          m_EnumTypeIsCustomizable: 0
+          m_CanDisable: 1
+          m_PropertyType: 1
+          m_ValueType: System.String
+          m_Value: 
+          m_Target:
+            m_Target: {fileID: 0}
+            m_Path: 
+            m_ValidTypeNames:
+            - System.String
+            m_Type: System.String
+            m_EnumType: 
+      - m_RequirementType: 2
+        m_GroupID: 
+        m_Tooltip: A unique identifier for the specific transaction that occurred.
+          You can use this to group multiple events into a single transaction.
+        m_Name: transaction_id
+        m_Value:
+          m_EditingCustomValue: 0
+          m_PopupIndex: 0
+          m_CustomValue: 
+          m_FixedType: 1
+          m_EnumType: 
+          m_EnumTypeIsCustomizable: 0
+          m_CanDisable: 1
+          m_PropertyType: 1
+          m_ValueType: System.String
+          m_Value: 
+          m_Target:
+            m_Target: {fileID: 0}
+            m_Path: 
+            m_ValidTypeNames:
+            - System.String
+            m_Type: System.String
+            m_EnumType: 
+    m_Name: iap_transaction
 --- !u!1 &43248198
 GameObject:
   m_ObjectHideFlags: 0
@@ -648,6 +835,7 @@ GameObject:
   - component: {fileID: 89429177}
   - component: {fileID: 89429176}
   - component: {fileID: 89429175}
+  - component: {fileID: 89429179}
   m_Layer: 5
   m_Name: ExtraSpeedBTN
   m_TagString: Untagged
@@ -687,6 +875,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36a5f511b0d8142cba0aeb92d0b264c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  productId: com.group2.afraidofthedark.SuperSpeed
+  buttonType: 0
+  consumePurchase: 1
+  onPurchaseComplete:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 870315396}
+        m_MethodName: OnMaxSpeedIncreasedPurchased
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onPurchaseFailed:
+    m_PersistentCalls:
+      m_Calls: []
+  titleText: {fileID: 0}
+  descriptionText: {fileID: 0}
+  priceText: {fileID: 0}
 --- !u!114 &89429176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -778,6 +989,169 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 89429173}
   m_CullTransparentMesh: 0
+--- !u!114 &89429179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 89429173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -745406591, guid: 220224b43fc464c28bc0e8de8f54a432, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Trigger:
+    m_IsTriggerExpanded: 1
+    m_Type: 1
+    m_LifecycleEvent: 0
+    m_ApplyRules: 0
+    m_Rules:
+      m_Rules: []
+    m_TriggerBool: 0
+    m_InitTime: 5
+    m_RepeatTime: 5
+    m_Repetitions: 0
+    repetitionCount: 0
+  m_EventPayload:
+    m_IsEventExpanded: 1
+    m_StandardEventType: IAPTransaction
+    m_Parameters:
+      m_Parameters:
+      - m_RequirementType: 1
+        m_GroupID: 
+        m_Tooltip: In what context (store, gift, reward) was the item acquired?
+        m_Name: transaction_context
+        m_Value:
+          m_EditingCustomValue: 0
+          m_PopupIndex: 0
+          m_CustomValue: 
+          m_FixedType: 1
+          m_EnumType: 
+          m_EnumTypeIsCustomizable: 0
+          m_CanDisable: 0
+          m_PropertyType: 1
+          m_ValueType: System.String
+          m_Value: 
+          m_Target:
+            m_Target: {fileID: 0}
+            m_Path: 
+            m_ValidTypeNames:
+            - System.String
+            m_Type: System.String
+            m_EnumType: 
+      - m_RequirementType: 1
+        m_GroupID: 
+        m_Tooltip: How much did the item cost?
+        m_Name: price
+        m_Value:
+          m_EditingCustomValue: 0
+          m_PopupIndex: 0
+          m_CustomValue: 
+          m_FixedType: 1
+          m_EnumType: 
+          m_EnumTypeIsCustomizable: 0
+          m_CanDisable: 0
+          m_PropertyType: 1
+          m_ValueType: System.Single
+          m_Value: 1.99
+          m_Target:
+            m_Target: {fileID: 0}
+            m_Path: 
+            m_ValidTypeNames:
+            - System.Single
+            m_Type: System.Single
+            m_EnumType: 
+      - m_RequirementType: 1
+        m_GroupID: 
+        m_Tooltip: A name or unique identifier for the acquired item.
+        m_Name: item_id
+        m_Value:
+          m_EditingCustomValue: 0
+          m_PopupIndex: 0
+          m_CustomValue: 
+          m_FixedType: 1
+          m_EnumType: 
+          m_EnumTypeIsCustomizable: 0
+          m_CanDisable: 0
+          m_PropertyType: 1
+          m_ValueType: System.String
+          m_Value: extra_speed
+          m_Target:
+            m_Target: {fileID: 0}
+            m_Path: 
+            m_ValidTypeNames:
+            - System.String
+            m_Type: System.String
+            m_EnumType: 
+      - m_RequirementType: 2
+        m_GroupID: 
+        m_Tooltip: The category of the item that was acquired.
+        m_Name: item_type
+        m_Value:
+          m_EditingCustomValue: 0
+          m_PopupIndex: 0
+          m_CustomValue: 
+          m_FixedType: 1
+          m_EnumType: 
+          m_EnumTypeIsCustomizable: 0
+          m_CanDisable: 1
+          m_PropertyType: 1
+          m_ValueType: System.String
+          m_Value: 
+          m_Target:
+            m_Target: {fileID: 0}
+            m_Path: 
+            m_ValidTypeNames:
+            - System.String
+            m_Type: System.String
+            m_EnumType: 
+      - m_RequirementType: 2
+        m_GroupID: 
+        m_Tooltip: The name or id of the level where the item was acquired.
+        m_Name: level
+        m_Value:
+          m_EditingCustomValue: 0
+          m_PopupIndex: 0
+          m_CustomValue: 
+          m_FixedType: 1
+          m_EnumType: 
+          m_EnumTypeIsCustomizable: 0
+          m_CanDisable: 1
+          m_PropertyType: 1
+          m_ValueType: System.String
+          m_Value: 
+          m_Target:
+            m_Target: {fileID: 0}
+            m_Path: 
+            m_ValidTypeNames:
+            - System.String
+            m_Type: System.String
+            m_EnumType: 
+      - m_RequirementType: 2
+        m_GroupID: 
+        m_Tooltip: A unique identifier for the specific transaction that occurred.
+          You can use this to group multiple events into a single transaction.
+        m_Name: transaction_id
+        m_Value:
+          m_EditingCustomValue: 0
+          m_PopupIndex: 0
+          m_CustomValue: 
+          m_FixedType: 1
+          m_EnumType: 
+          m_EnumTypeIsCustomizable: 0
+          m_CanDisable: 1
+          m_PropertyType: 1
+          m_ValueType: System.String
+          m_Value: 
+          m_Target:
+            m_Target: {fileID: 0}
+            m_Path: 
+            m_ValidTypeNames:
+            - System.String
+            m_Type: System.String
+            m_EnumType: 
+    m_Name: iap_transaction
 --- !u!1 &174974503
 GameObject:
   m_ObjectHideFlags: 0
@@ -1911,7 +2285,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 805025909}
-        m_MethodName: LoadScene
+        m_MethodName: LoadStartScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2859,7 +3233,7 @@ GameObject:
   - component: {fileID: 870315397}
   - component: {fileID: 870315396}
   m_Layer: 0
-  m_Name: IAPManager
+  m_Name: '[IAPMANAGER]'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3228,6 +3602,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 950688962}
   m_CullTransparentMesh: 0
+--- !u!1 &967089435
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 967089437}
+  - component: {fileID: 967089436}
+  m_Layer: 0
+  m_Name: '[IAPTEMP]'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &967089436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 967089435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72413d5768b7f494f97092ef7b4cab10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  persistOnSceneLoad: 1
+  newMaxLight: 0
+  newMaxHealth: 0
+  newMaxSpeed: 0
+--- !u!4 &967089437
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 967089435}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.5909507, y: 9.850369, z: 46.097195}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &971606505
 GameObject:
   m_ObjectHideFlags: 0
@@ -3923,6 +4344,7 @@ GameObject:
   - component: {fileID: 1081765503}
   - component: {fileID: 1081765502}
   - component: {fileID: 1081765501}
+  - component: {fileID: 1081765505}
   m_Layer: 5
   m_Name: ExtraLightBTN
   m_TagString: Untagged
@@ -3962,6 +4384,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36a5f511b0d8142cba0aeb92d0b264c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  productId: com.group2.afraidofthedark.brighterLight
+  buttonType: 0
+  consumePurchase: 1
+  onPurchaseComplete:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 870315396}
+        m_MethodName: OnMaxIntensityIncreasePurchased
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onPurchaseFailed:
+    m_PersistentCalls:
+      m_Calls: []
+  titleText: {fileID: 0}
+  descriptionText: {fileID: 0}
+  priceText: {fileID: 0}
 --- !u!114 &1081765502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4053,6 +4498,169 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1081765499}
   m_CullTransparentMesh: 0
+--- !u!114 &1081765505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1081765499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -745406591, guid: 220224b43fc464c28bc0e8de8f54a432, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Trigger:
+    m_IsTriggerExpanded: 1
+    m_Type: 1
+    m_LifecycleEvent: 0
+    m_ApplyRules: 0
+    m_Rules:
+      m_Rules: []
+    m_TriggerBool: 0
+    m_InitTime: 5
+    m_RepeatTime: 5
+    m_Repetitions: 0
+    repetitionCount: 0
+  m_EventPayload:
+    m_IsEventExpanded: 1
+    m_StandardEventType: IAPTransaction
+    m_Parameters:
+      m_Parameters:
+      - m_RequirementType: 1
+        m_GroupID: 
+        m_Tooltip: In what context (store, gift, reward) was the item acquired?
+        m_Name: transaction_context
+        m_Value:
+          m_EditingCustomValue: 0
+          m_PopupIndex: 0
+          m_CustomValue: 
+          m_FixedType: 1
+          m_EnumType: 
+          m_EnumTypeIsCustomizable: 0
+          m_CanDisable: 0
+          m_PropertyType: 1
+          m_ValueType: System.String
+          m_Value: 
+          m_Target:
+            m_Target: {fileID: 0}
+            m_Path: 
+            m_ValidTypeNames:
+            - System.String
+            m_Type: System.String
+            m_EnumType: 
+      - m_RequirementType: 1
+        m_GroupID: 
+        m_Tooltip: How much did the item cost?
+        m_Name: price
+        m_Value:
+          m_EditingCustomValue: 0
+          m_PopupIndex: 0
+          m_CustomValue: 
+          m_FixedType: 1
+          m_EnumType: 
+          m_EnumTypeIsCustomizable: 0
+          m_CanDisable: 0
+          m_PropertyType: 1
+          m_ValueType: System.Single
+          m_Value: 2.99
+          m_Target:
+            m_Target: {fileID: 0}
+            m_Path: 
+            m_ValidTypeNames:
+            - System.Single
+            m_Type: System.Single
+            m_EnumType: 
+      - m_RequirementType: 1
+        m_GroupID: 
+        m_Tooltip: A name or unique identifier for the acquired item.
+        m_Name: item_id
+        m_Value:
+          m_EditingCustomValue: 0
+          m_PopupIndex: 0
+          m_CustomValue: 
+          m_FixedType: 1
+          m_EnumType: 
+          m_EnumTypeIsCustomizable: 0
+          m_CanDisable: 0
+          m_PropertyType: 1
+          m_ValueType: System.String
+          m_Value: brighter_light
+          m_Target:
+            m_Target: {fileID: 0}
+            m_Path: 
+            m_ValidTypeNames:
+            - System.String
+            m_Type: System.String
+            m_EnumType: 
+      - m_RequirementType: 2
+        m_GroupID: 
+        m_Tooltip: The category of the item that was acquired.
+        m_Name: item_type
+        m_Value:
+          m_EditingCustomValue: 0
+          m_PopupIndex: 0
+          m_CustomValue: 
+          m_FixedType: 1
+          m_EnumType: 
+          m_EnumTypeIsCustomizable: 0
+          m_CanDisable: 1
+          m_PropertyType: 1
+          m_ValueType: System.String
+          m_Value: 
+          m_Target:
+            m_Target: {fileID: 0}
+            m_Path: 
+            m_ValidTypeNames:
+            - System.String
+            m_Type: System.String
+            m_EnumType: 
+      - m_RequirementType: 2
+        m_GroupID: 
+        m_Tooltip: The name or id of the level where the item was acquired.
+        m_Name: level
+        m_Value:
+          m_EditingCustomValue: 0
+          m_PopupIndex: 0
+          m_CustomValue: 
+          m_FixedType: 1
+          m_EnumType: 
+          m_EnumTypeIsCustomizable: 0
+          m_CanDisable: 1
+          m_PropertyType: 1
+          m_ValueType: System.String
+          m_Value: 
+          m_Target:
+            m_Target: {fileID: 0}
+            m_Path: 
+            m_ValidTypeNames:
+            - System.String
+            m_Type: System.String
+            m_EnumType: 
+      - m_RequirementType: 2
+        m_GroupID: 
+        m_Tooltip: A unique identifier for the specific transaction that occurred.
+          You can use this to group multiple events into a single transaction.
+        m_Name: transaction_id
+        m_Value:
+          m_EditingCustomValue: 0
+          m_PopupIndex: 0
+          m_CustomValue: 
+          m_FixedType: 1
+          m_EnumType: 
+          m_EnumTypeIsCustomizable: 0
+          m_CanDisable: 1
+          m_PropertyType: 1
+          m_ValueType: System.String
+          m_Value: 
+          m_Target:
+            m_Target: {fileID: 0}
+            m_Path: 
+            m_ValidTypeNames:
+            - System.String
+            m_Type: System.String
+            m_EnumType: 
+    m_Name: iap_transaction
 --- !u!1 &1110260216
 GameObject:
   m_ObjectHideFlags: 0
@@ -4299,39 +4907,76 @@ MonoBehaviour:
     repetitionCount: 0
   m_EventPayload:
     m_IsEventExpanded: 1
-    m_StandardEventType: CustomEvent
+    m_StandardEventType: AdSkip
     m_Parameters:
       m_Parameters:
-      - m_RequirementType: 0
+      - m_RequirementType: 1
         m_GroupID: 
-        m_Tooltip: 
-        m_Name: Clicked_NO_BTN
+        m_Tooltip: Set to true if a reward is offered for this ad.
+        m_Name: rewarded
         m_Value:
           m_EditingCustomValue: 0
           m_PopupIndex: 0
           m_CustomValue: 
-          m_FixedType: 0
+          m_FixedType: 1
           m_EnumType: 
           m_EnumTypeIsCustomizable: 0
           m_CanDisable: 0
           m_PropertyType: 1
-          m_ValueType: System.String
-          m_Value: Did not watch the ad.
+          m_ValueType: System.Boolean
+          m_Value: True
           m_Target:
             m_Target: {fileID: 0}
             m_Path: 
             m_ValidTypeNames:
-            - System.Int32
             - System.Boolean
-            - System.Decimal
-            - System.Double
-            - System.Single
-            - System.Int64
-            - System.Int16
+            m_Type: System.Boolean
+            m_EnumType: 
+      - m_RequirementType: 2
+        m_GroupID: 
+        m_Tooltip: The ad or mediation network provider.
+        m_Name: network
+        m_Value:
+          m_EditingCustomValue: 0
+          m_PopupIndex: 0
+          m_CustomValue: 
+          m_FixedType: 1
+          m_EnumType: UnityEngine.Analytics.AdvertisingNetwork
+          m_EnumTypeIsCustomizable: 1
+          m_CanDisable: 1
+          m_PropertyType: 0
+          m_ValueType: enum
+          m_Value: 
+          m_Target:
+            m_Target: {fileID: 0}
+            m_Path: 
+            m_ValidTypeNames:
+            - enum
+            m_Type: enum
+            m_EnumType: UnityEngine.Analytics.AdvertisingNetwork
+      - m_RequirementType: 2
+        m_GroupID: 
+        m_Tooltip: An ad placement or configuration ID.
+        m_Name: placement_id
+        m_Value:
+          m_EditingCustomValue: 0
+          m_PopupIndex: 0
+          m_CustomValue: 
+          m_FixedType: 1
+          m_EnumType: UnityEngine.Analytics.AdvertisingNetwork
+          m_EnumTypeIsCustomizable: 0
+          m_CanDisable: 1
+          m_PropertyType: 1
+          m_ValueType: System.String
+          m_Value: 
+          m_Target:
+            m_Target: {fileID: 0}
+            m_Path: 
+            m_ValidTypeNames:
             - System.String
             m_Type: System.String
-            m_EnumType: 
-    m_Name: DidNotWatchAD
+            m_EnumType: UnityEngine.Analytics.AdvertisingNetwork
+    m_Name: ad_skip
 --- !u!1 &1175975057
 GameObject:
   m_ObjectHideFlags: 0
@@ -6240,39 +6885,76 @@ MonoBehaviour:
     repetitionCount: 0
   m_EventPayload:
     m_IsEventExpanded: 1
-    m_StandardEventType: CustomEvent
+    m_StandardEventType: AdStart
     m_Parameters:
       m_Parameters:
-      - m_RequirementType: 0
+      - m_RequirementType: 1
         m_GroupID: 
-        m_Tooltip: 
-        m_Name: Yes_Watched_AD
+        m_Tooltip: Set to true if a reward is offered for this ad.
+        m_Name: rewarded
         m_Value:
           m_EditingCustomValue: 0
           m_PopupIndex: 0
           m_CustomValue: 
-          m_FixedType: 0
+          m_FixedType: 1
           m_EnumType: 
           m_EnumTypeIsCustomizable: 0
           m_CanDisable: 0
           m_PropertyType: 1
-          m_ValueType: System.String
-          m_Value: Selected and watched the ad
+          m_ValueType: System.Boolean
+          m_Value: True
           m_Target:
             m_Target: {fileID: 0}
             m_Path: 
             m_ValidTypeNames:
-            - System.Int32
             - System.Boolean
-            - System.Decimal
-            - System.Double
-            - System.Single
-            - System.Int64
-            - System.Int16
+            m_Type: System.Boolean
+            m_EnumType: 
+      - m_RequirementType: 2
+        m_GroupID: 
+        m_Tooltip: The ad or mediation network provider.
+        m_Name: network
+        m_Value:
+          m_EditingCustomValue: 0
+          m_PopupIndex: 0
+          m_CustomValue: 
+          m_FixedType: 1
+          m_EnumType: UnityEngine.Analytics.AdvertisingNetwork
+          m_EnumTypeIsCustomizable: 1
+          m_CanDisable: 1
+          m_PropertyType: 0
+          m_ValueType: enum
+          m_Value: 
+          m_Target:
+            m_Target: {fileID: 0}
+            m_Path: 
+            m_ValidTypeNames:
+            - enum
+            m_Type: enum
+            m_EnumType: UnityEngine.Analytics.AdvertisingNetwork
+      - m_RequirementType: 2
+        m_GroupID: 
+        m_Tooltip: An ad placement or configuration ID.
+        m_Name: placement_id
+        m_Value:
+          m_EditingCustomValue: 0
+          m_PopupIndex: 0
+          m_CustomValue: 
+          m_FixedType: 1
+          m_EnumType: UnityEngine.Analytics.AdvertisingNetwork
+          m_EnumTypeIsCustomizable: 0
+          m_CanDisable: 1
+          m_PropertyType: 1
+          m_ValueType: System.String
+          m_Value: 
+          m_Target:
+            m_Target: {fileID: 0}
+            m_Path: 
+            m_ValidTypeNames:
             - System.String
             m_Type: System.String
-            m_EnumType: 
-    m_Name: WatchedAD
+            m_EnumType: UnityEngine.Analytics.AdvertisingNetwork
+    m_Name: ad_start
 --- !u!114 &1850334346
 MonoBehaviour:
   m_ObjectHideFlags: 0

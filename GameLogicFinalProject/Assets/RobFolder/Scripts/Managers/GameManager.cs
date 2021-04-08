@@ -42,9 +42,17 @@ public class GameManager : Singleton<GameManager>
     private void Start()
     {
         maxPlayerHealth += IAPTemp.Instance.newMaxHealth;
+        if(maxPlayerHealth > 200)
+        {
+            maxPlayerHealth = 200;
+        }
         totalHealth = maxPlayerHealth;
         playerLight.range = maxPlayerLightRange;
         playerLight.intensity = IAPTemp.Instance.newMaxLight;
+        if(playerLight.intensity == 0)
+        {
+            playerLight.intensity = 0.6f;
+        }
         player = FindObjectOfType<PlayerController>();
         if (tutorialSpawnPoint != null)
         {

@@ -19,6 +19,10 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         playerMovementSpeed += IAPTemp.Instance.newMaxSpeed;
+        if(playerMovementSpeed > 450)
+        {
+            playerMovementSpeed = 450;
+        }
         rb = GetComponent<Rigidbody>();
         animator = GetComponentInChildren<Animator>();
     }

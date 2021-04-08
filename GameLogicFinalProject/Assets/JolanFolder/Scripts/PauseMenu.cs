@@ -39,6 +39,11 @@ public class PauseMenu : MonoBehaviour
         SceneManager.LoadScene("TerryScene");
         Time.timeScale = 1f;
     }
+    public void RestartRobScene()
+    {
+        SceneManager.LoadScene("RobLevel");
+        Time.timeScale = 1f;
+    }
 
     public void MainMenuScene()
     {
