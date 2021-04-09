@@ -7321,6 +7321,7 @@ MonoBehaviour:
   persistOnSceneLoad: 0
   gameState: 0
   player: {fileID: 173714374}
+  analyticsCtrler: {fileID: 0}
   allPickUpTypes: []
   allCheckPoints: []
   playerRespawnPoint: {fileID: 0}
@@ -8847,7 +8848,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   placementIdRewardVideo: AOTDReward1
-  placementIdBanner: AOTDBanner1
 --- !u!114 &998875880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12149,12 +12149,82 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2068806003059733412}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1409012059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1409012058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0113b2abf7dce6d4a8df9ef178d49e7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventname: TimesCompleted
+--- !u!114 &1409012060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1409012058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0113b2abf7dce6d4a8df9ef178d49e7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventname: NumberOfDeaths
 --- !u!108 &1415452595 stripped
 Light:
   m_CorrespondingSourceObject: {fileID: 2068806002325333015, guid: b00a354395dbe4e4c827139f0127d3fb,
     type: 3}
   m_PrefabInstance: {fileID: 2068806003059733412}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1417291403
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1417291405}
+  - component: {fileID: 1417291404}
+  m_Layer: 0
+  m_Name: '[ANALYTICSMANAGER]'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1417291404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1417291403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6ae31bb0afb5484b9d529a6ae1973a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  persistOnSceneLoad: 1
+--- !u!4 &1417291405
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1417291403}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -21.1703, y: 49.59455, z: 101.70946}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 28
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1418199839
 GameObject:
   m_ObjectHideFlags: 0

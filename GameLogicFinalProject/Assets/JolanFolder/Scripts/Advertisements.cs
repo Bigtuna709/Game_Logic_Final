@@ -9,7 +9,7 @@ public class Advertisements : MonoBehaviour, IUnityAdsListener
     bool testMode = true;
 
     public string placementIdRewardVideo = "AOTDReward1";
-    public string placementIdBanner = "AOTDBanner1";
+    
 
     void Start()
     {

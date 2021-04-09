@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
+using UnityEngine.Analytics;
+
 public enum GameState
 {
     Tutorial,
@@ -14,6 +16,8 @@ public class GameManager : Singleton<GameManager>
 {
     public GameState gameState;
     public PlayerController player;
+
+    public AnalyticsController analyticsCtrler;
 
     public List<PickUpController> allPickUpTypes = new List<PickUpController>();
     public List<CheckPointController> allCheckPoints = new List<CheckPointController>();
@@ -41,6 +45,7 @@ public class GameManager : Singleton<GameManager>
 
     private void Start()
     {
+        analyticsCtrler = FindObjectOfType<AnalyticsController>();
         maxPlayerHealth += IAPTemp.Instance.newMaxHealth;
         if(maxPlayerHealth > 200)
         {
@@ -169,6 +174,8 @@ public class GameManager : Singleton<GameManager>
         if (totalHealth <= 0)
         {
             totalLives--;
+            //when player dies will record the # of times this method is called from the AnalyticsController. Which will count as the everytime the player dies.
+            analyticsCtrler.recordNumberOfDeathsEvent();
             StopAllCoroutines();
             if (totalLives >= 1)
             {
@@ -179,6 +186,7 @@ public class GameManager : Singleton<GameManager>
             else
             {
                 GameOver();
+                
             }
         }
     }
@@ -187,6 +195,8 @@ public class GameManager : Singleton<GameManager>
     {
         if (totalHealth > 0)
         {
+            //when player beats the game, call this Method from AnalyticsController to record the times level was beaten.
+            analyticsCtrler.recordCompletedLevel();
             hud.SetActive(false);
             endGameCanvas.SetActive(true);
             Time.timeScale = 0.4f;
@@ -216,4 +226,6 @@ public class GameManager : Singleton<GameManager>
             totalHealth = maxPlayerHealth;
         }
     }
+
+
 }

@@ -1880,6 +1880,50 @@ Transform:
   m_Father: {fileID: 896701871}
   m_RootOrder: 47
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &247093886
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 247093888}
+  - component: {fileID: 247093887}
+  m_Layer: 0
+  m_Name: '[ANALYTICSMANAGER]'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &247093887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 247093886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6ae31bb0afb5484b9d529a6ae1973a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  persistOnSceneLoad: 1
+--- !u!4 &247093888
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 247093886}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -21.1703, y: 49.59455, z: 101.70946}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &253573485
 GameObject:
   m_ObjectHideFlags: 0
@@ -5049,7 +5093,7 @@ RectTransform:
   - {fileID: 2037536699}
   - {fileID: 494196664}
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -5149,7 +5193,7 @@ RectTransform:
   - {fileID: 1235805582}
   - {fileID: 1533108621}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -6179,7 +6223,7 @@ RectTransform:
   - {fileID: 672935908}
   - {fileID: 147417156}
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -8003,6 +8047,7 @@ GameObject:
   m_Component:
   - component: {fileID: 882192704}
   - component: {fileID: 882192703}
+  - component: {fileID: 882192705}
   m_Layer: 0
   m_Name: '[GAMEMANAGER]'
   m_TagString: Untagged
@@ -8025,6 +8070,7 @@ MonoBehaviour:
   persistOnSceneLoad: 0
   gameState: 1
   player: {fileID: 2065787075}
+  analyticsCtrler: {fileID: 0}
   allPickUpTypes:
   - {fileID: 2744432951180818280, guid: 811980e5d0ad6f74a869716ff2b80fcc, type: 3}
   - {fileID: 2744432951180818280, guid: 79e4bcba4d5585542833b3a538b90a6a, type: 3}
@@ -8062,6 +8108,65 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &882192705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882192702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -745406591, guid: 220224b43fc464c28bc0e8de8f54a432, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Trigger:
+    m_IsTriggerExpanded: 1
+    m_Type: 0
+    m_LifecycleEvent: 0
+    m_ApplyRules: 0
+    m_Rules:
+      m_Rules: []
+    m_TriggerBool: 0
+    m_InitTime: 5
+    m_RepeatTime: 5
+    m_Repetitions: 0
+    repetitionCount: 0
+  m_EventPayload:
+    m_IsEventExpanded: 1
+    m_StandardEventType: CustomEvent
+    m_Parameters:
+      m_Parameters:
+      - m_RequirementType: 0
+        m_GroupID: 
+        m_Tooltip: 
+        m_Name: Each time a player has died
+        m_Value:
+          m_EditingCustomValue: 0
+          m_PopupIndex: 0
+          m_CustomValue: 
+          m_FixedType: 0
+          m_EnumType: 
+          m_EnumTypeIsCustomizable: 0
+          m_CanDisable: 0
+          m_PropertyType: 1
+          m_ValueType: System.Int32
+          m_Value: 0
+          m_Target:
+            m_Target: {fileID: 0}
+            m_Path: 
+            m_ValidTypeNames:
+            - System.Int32
+            - System.Boolean
+            - System.Decimal
+            - System.Double
+            - System.Single
+            - System.Int64
+            - System.Int16
+            - System.String
+            m_Type: System.Int32
+            m_EnumType: 
+    m_Name: Number of deaths
 --- !u!1 &896701870
 GameObject:
   m_ObjectHideFlags: 0
@@ -9255,7 +9360,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   placementIdRewardVideo: AOTDReward1
-  placementIdBanner: AOTDBanner1
 --- !u!114 &1003669918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13212,7 +13316,7 @@ RectTransform:
   - {fileID: 496393784}
   - {fileID: 1047804301}
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -14145,7 +14249,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &1573882701
 GameObject:
@@ -18084,7 +18188,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2037536698
 GameObject:
@@ -18736,6 +18840,32 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2065787074}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2065787079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2065787078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0113b2abf7dce6d4a8df9ef178d49e7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventname: TimesCompleted
+--- !u!114 &2065787080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2065787078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0113b2abf7dce6d4a8df9ef178d49e7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventname: NumberOfDeaths
 --- !u!1 &2069594959
 GameObject:
   m_ObjectHideFlags: 0
@@ -19161,7 +19291,7 @@ RectTransform:
   - {fileID: 733668382}
   - {fileID: 1978060445}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
