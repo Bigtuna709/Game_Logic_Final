@@ -7,6 +7,10 @@ public class CheckPointController : MonoBehaviour
 {
     public GameState gameState;
 
+    public bool isClosed;
+    public Animator areaOneDoorAnimator;
+    public Animator areaTwoDoorAnimator;
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Player"))
@@ -18,6 +22,7 @@ public class CheckPointController : MonoBehaviour
             if(state != null && state.gameState != GameState.Area3)
             {
                 ChangeGameState(state);
+                areaOneDoorAnimator.SetBool("isClosed", true);
 
                 // Implement Area 2 pickups
                 PickUpsManager.Instance.PopulateNewAreaPickUps(PickUpsManager.Instance.areaTwoRatTrapLocations, ObjectPoolManager.Instance.allRatTrapsCreated);
@@ -28,6 +33,7 @@ public class CheckPointController : MonoBehaviour
             else
             {
                 ChangeGameState(state);
+                areaTwoDoorAnimator.SetBool("isClosed", true);
 
                 // Implement Area 3 pickups
                 PickUpsManager.Instance.PopulateNewAreaPickUps(PickUpsManager.Instance.areaThreeBatteryLocations, ObjectPoolManager.Instance.allLargeBatteriesCreated);
