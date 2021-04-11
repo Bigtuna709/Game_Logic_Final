@@ -7,7 +7,6 @@ public class CheckPointController : MonoBehaviour
 {
     public GameState gameState;
 
-    public bool isClosed;
     public Animator areaOneDoorAnimator;
     public Animator areaTwoDoorAnimator;
 
