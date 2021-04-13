@@ -127,7 +127,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickUpType: 0
-  gameMgr: {fileID: 0}
+  lightParticle: {fileID: 7276439007437383196, guid: 8c7075c7eb5be954c8dc00a26b1f6fbc,
+    type: 3}
   meshRend: {fileID: 0}
   lightValue: 10
   healthValue: 10

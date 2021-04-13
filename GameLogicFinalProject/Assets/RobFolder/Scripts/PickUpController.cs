@@ -25,8 +25,8 @@ public class PickUpController : MonoBehaviour
         if (other.gameObject.CompareTag("Player") && !isPickedUp)
         {
             StartCoroutine(GameManager.Instance.RewardPlayer(this));
-            meshRend.enabled = false;
             isPickedUp = true;
+            meshRend.enabled = false;
         }
     }
 }
