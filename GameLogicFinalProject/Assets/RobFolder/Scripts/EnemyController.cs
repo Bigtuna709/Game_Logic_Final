@@ -21,7 +21,7 @@ public class EnemyController : MonoBehaviour
     private void Awake()
     {
         npcAgent = GetComponent<NavMeshAgent>();
-        animator = GetComponent<Animator>();
+        animator = GetComponentInChildren<Animator>();
     }
 
     private void Start()
@@ -70,13 +70,17 @@ public class EnemyController : MonoBehaviour
         {
             if(hit.transform.CompareTag("Player"))
             {
-                animator.SetBool("isChasingPlayer", true);
+                if (animator.GetBool("isChasingPlayer") == false)
+                {
+                    animator.SetBool("isChasingPlayer", true);
+                }
                 npcAgent.destination = playerTarget.transform.position;
             }
         }
     }
     private IEnumerator RandomDestination()
     {
+        TurnOffMunching();
         npcAgent.destination = npcCheckPoints[checkPointDestination].position;
         float distance = Vector3.Distance(npcCheckPoints[checkPointDestination].position, transform.position);
         if (distance < distanceCheck)
@@ -88,8 +92,18 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    public void TurnOffMunching()
+    {
+        if (animator.GetBool("isChasingPlayer") == true)
+        {
+            animator.SetBool("isChasingPlayer", false);
+        }
+    }
+
     private IEnumerator NotRandomDestination()
     {
+        TurnOffMunching();
+        npcAgent.destination = npcCheckPoints[checkPointDestination].position;
         float distance = Vector3.Distance(npcCheckPoints[checkPointDestination].position, transform.position);
         if (distance < distanceCheck)
         {

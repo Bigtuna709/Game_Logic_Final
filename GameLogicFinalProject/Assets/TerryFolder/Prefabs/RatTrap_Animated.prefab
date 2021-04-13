@@ -454,6 +454,8 @@ MonoBehaviour:
   trapResetTimer: 5
   isSprung: 0
   animator: {fileID: 0}
+  sparksParticle: {fileID: 5468419149276080844, guid: c7c2910b9bddf7245b4e7dd2455d3fe1,
+    type: 3}
 --- !u!65 &2000974277392451880
 BoxCollider:
   m_ObjectHideFlags: 0

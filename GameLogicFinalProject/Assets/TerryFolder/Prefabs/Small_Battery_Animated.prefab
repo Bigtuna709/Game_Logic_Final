@@ -39,6 +39,11 @@ PrefabInstance:
     m_TransformParent: {fileID: 8756884043002250076}
     m_Modifications:
     - target: {fileID: 1625228638, guid: 9cd76e0a316dc5841a6eb985d7768fbe, type: 3}
+      propertyPath: cheeseParticle
+      value: 
+      objectReference: {fileID: 5748577656561485148, guid: d8e905ffc3967d440bb268efdb6fbef2,
+        type: 3}
+    - target: {fileID: 1625228638, guid: 9cd76e0a316dc5841a6eb985d7768fbe, type: 3}
       propertyPath: electricParticle
       value: 
       objectReference: {fileID: 6261816502233447023, guid: 8c7075c7eb5be954c8dc00a26b1f6fbc,

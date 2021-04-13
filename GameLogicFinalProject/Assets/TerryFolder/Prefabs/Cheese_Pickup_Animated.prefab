@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8151435389038271857}
   m_Layer: 0
   m_Name: Cheese_Pickup_Animated
-  m_TagString: Untagged
+  m_TagString: Cheese
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -55,6 +55,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3696896481816905627, guid: 4b88202b906681043b3ec7fa8e1d25a5,
         type: 3}
+      propertyPath: cheeseParticle
+      value: 
+      objectReference: {fileID: 5748577656561485148, guid: d8e905ffc3967d440bb268efdb6fbef2,
+        type: 3}
+    - target: {fileID: 3696896481816905627, guid: 4b88202b906681043b3ec7fa8e1d25a5,
+        type: 3}
       propertyPath: electricParticle
       value: 
       objectReference: {fileID: 6261816502233447023, guid: 8c7075c7eb5be954c8dc00a26b1f6fbc,
@@ -88,6 +94,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Cheese_FBX
+      objectReference: {fileID: 0}
+    - target: {fileID: 6269851716785139921, guid: 4b88202b906681043b3ec7fa8e1d25a5,
+        type: 3}
+      propertyPath: m_TagString
+      value: Cheese
       objectReference: {fileID: 0}
     - target: {fileID: 6649895005289294443, guid: 4b88202b906681043b3ec7fa8e1d25a5,
         type: 3}

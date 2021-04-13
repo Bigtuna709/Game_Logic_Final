@@ -18,6 +18,7 @@ public class PickUpController : MonoBehaviour
     public bool isPickedUp;
 
     public GameObject electricParticle;
+    public GameObject cheeseParticle;
 
     private void Start()
     {
@@ -30,7 +31,14 @@ public class PickUpController : MonoBehaviour
             StartCoroutine(GameManager.Instance.RewardPlayer(this));
             isPickedUp = true;
             meshRend.enabled = false;
-            Instantiate(electricParticle, this.transform.position, this.transform.rotation);
+            if(this.CompareTag("Cheese"))
+            {
+                Instantiate(cheeseParticle, this.transform.position, this.transform.rotation);
+            }
+            else
+            {
+                Instantiate(electricParticle, this.transform.position, this.transform.rotation);
+            }
         }
     }
 }

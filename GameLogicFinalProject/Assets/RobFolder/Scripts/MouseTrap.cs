@@ -8,6 +8,7 @@ public class MouseTrap : MonoBehaviour
     public int trapResetTimer = 5;
     public bool isSprung;
     public Animator animator;
+    public GameObject sparksParticle;
 
     private void Awake()
     {
@@ -21,6 +22,7 @@ public class MouseTrap : MonoBehaviour
             if (!isSprung)
             {
                 // Checks if it is sprung and deals damage if its not
+                Instantiate(sparksParticle, this.transform.position, sparksParticle.transform.rotation);
                 animator.SetBool("isSprung", true);
                 isSprung = true;
                 StartCoroutine(GameManager.Instance.PlayerTakeDamage(trapDamage));
