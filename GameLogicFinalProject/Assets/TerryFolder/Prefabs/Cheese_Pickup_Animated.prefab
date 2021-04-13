@@ -53,6 +53,12 @@ PrefabInstance:
       propertyPath: healthValue
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 3696896481816905627, guid: 4b88202b906681043b3ec7fa8e1d25a5,
+        type: 3}
+      propertyPath: electricParticle
+      value: 
+      objectReference: {fileID: 6261816502233447023, guid: 8c7075c7eb5be954c8dc00a26b1f6fbc,
+        type: 3}
     - target: {fileID: 3993445343081011408, guid: 4b88202b906681043b3ec7fa8e1d25a5,
         type: 3}
       propertyPath: m_Radius

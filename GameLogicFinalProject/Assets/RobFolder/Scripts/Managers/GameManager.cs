@@ -42,6 +42,9 @@ public class GameManager : Singleton<GameManager>
     public GameObject hud;
     public Slider healthBarSlider;
     public Slider lightLevelSlider;
+    public Animator healthbarAnimator;
+
+    public Text livesTextField;
 
     private void Start()
     {
@@ -74,11 +77,13 @@ public class GameManager : Singleton<GameManager>
         {
             hud.SetActive(true);
         }
+
+        livesTextField.text = "Lives: " + totalLives.ToString();
     }
     private void FixedUpdate()
     {
         // Lowers the player's light range over time
-        if (playerLight.range > 0)
+        if (playerLight.range > 5.5f)
         {
             StartCoroutine(LowerLightOverTime());
         }
@@ -97,7 +102,7 @@ public class GameManager : Singleton<GameManager>
             playerLight.range = 0;
         }
         lightLevelSlider.value = playerLight.range;
-
+        healthbarAnimator.SetBool("isShaking", false);
     }
     // Lowers the player's health over time and checks for game over when player has 0 health
     public IEnumerator LowerHealthOverTime()
@@ -105,8 +110,11 @@ public class GameManager : Singleton<GameManager>
         yield return new WaitForSeconds(1f);
         totalHealth -= healthLoweringAmount * Time.deltaTime;
         healthBarSlider.value = totalHealth;
+        if(healthbarAnimator.GetBool("isShaking") == false)
+        {
+            healthbarAnimator.SetBool("isShaking", true);
+        }
         IsPlayerDead();
-
     }
     // fuction that will increase the player's light range or health on pick up
     public IEnumerator RewardPlayer(PickUpController pickUpCtrler)
@@ -149,6 +157,7 @@ public class GameManager : Singleton<GameManager>
     // Function to damage the player
     public IEnumerator PlayerTakeDamage(int damage)
     {
+        healthbarAnimator.SetTrigger("isDamaged");
         for (int i = 0; i < damage; i++)
         {
             yield return new WaitForSeconds(0.05f);
@@ -156,11 +165,15 @@ public class GameManager : Singleton<GameManager>
             healthBarSlider.value = totalHealth;
             IsPlayerDead();
         }
+        //healthbarAnimator.SetBool("isShaking", false);
     }
 
     public void RespawnPlayer()
     {
-        hud.SetActive(true);
+        if(hud != null)
+        {
+            hud.SetActive(true);
+        }
         playerLight.range = maxPlayerLightRange;
         player.transform.position = playerRespawnPoint.position;
         totalHealth = maxPlayerHealth;
@@ -174,6 +187,7 @@ public class GameManager : Singleton<GameManager>
         if (totalHealth <= 0)
         {
             totalLives--;
+            livesTextField.text = "Lives: " + totalLives.ToString();
             //when player dies will record the # of times this method is called from the AnalyticsController. Which will count as the everytime the player dies.
             analyticsCtrler.recordNumberOfDeathsEvent();
             StopAllCoroutines();

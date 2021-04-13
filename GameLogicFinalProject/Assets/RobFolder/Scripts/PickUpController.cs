@@ -16,6 +16,9 @@ public class PickUpController : MonoBehaviour
     public int lightValue;
     public int healthValue;
     public bool isPickedUp;
+
+    public GameObject electricParticle;
+
     private void Start()
     {
         meshRend = GetComponent<MeshRenderer>();
@@ -27,6 +30,7 @@ public class PickUpController : MonoBehaviour
             StartCoroutine(GameManager.Instance.RewardPlayer(this));
             isPickedUp = true;
             meshRend.enabled = false;
+            Instantiate(electricParticle, this.transform.position, this.transform.rotation);
         }
     }
 }

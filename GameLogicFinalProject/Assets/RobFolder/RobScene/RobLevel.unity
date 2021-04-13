@@ -8309,7 +8309,7 @@ MonoBehaviour:
   areaTwoSpawnPoint: {fileID: 1549907629}
   areaThreeSpawnPoint: {fileID: 1211011779}
   playerLight: {fileID: 2065787077}
-  lightLoweringAmount: 2
+  lightLoweringAmount: 1
   healthLoweringAmount: 10
   totalHealth: 100
   maxPlayerLightRange: 30
@@ -8320,6 +8320,8 @@ MonoBehaviour:
   hud: {fileID: 1649248192}
   healthBarSlider: {fileID: 1662293259}
   lightLevelSlider: {fileID: 1219636621}
+  healthbarAnimator: {fileID: 1662293260}
+  livesTextField: {fileID: 1380202129}
 --- !u!4 &882192704
 Transform:
   m_ObjectHideFlags: 0
@@ -13325,6 +13327,84 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1369101408}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1380202128
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1380202131}
+  - component: {fileID: 1380202130}
+  - component: {fileID: 1380202129}
+  m_Layer: 5
+  m_Name: HealthCounter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1380202129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1380202128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 69096e4bc59e59e4f9c97379593954db, type: 3}
+    m_FontSize: 46
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 52
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: '{Lives}'
+--- !u!222 &1380202130
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1380202128}
+  m_CullTransparentMesh: 0
+--- !u!224 &1380202131
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1380202128}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1649248196}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -35, y: 387}
+  m_SizeDelta: {x: 308.8601, y: 137.88263}
+  m_Pivot: {x: 0.32278687, y: 0.5}
 --- !u!1 &1387120745
 GameObject:
   m_ObjectHideFlags: 0
@@ -14405,7 +14485,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &1566091039
 Light:
   m_ObjectHideFlags: 0
@@ -14760,6 +14840,7 @@ RectTransform:
   m_Children:
   - {fileID: 628872456}
   - {fileID: 1157754003}
+  - {fileID: 1380202131}
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -14996,6 +15077,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1662293258}
   - component: {fileID: 1662293259}
+  - component: {fileID: 1662293260}
   m_Layer: 5
   m_Name: Health_Slider
   m_TagString: Untagged
@@ -15074,6 +15156,25 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!95 &1662293260
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1662293257}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1ba523a845e61af4d82a20efd010f7c4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1673042648
 GameObject:
   m_ObjectHideFlags: 0
