@@ -35,21 +35,25 @@ public class PlayerController : MonoBehaviour
         {
             velocity.z -= playerMovementSpeed;
             transform.rotation = Quaternion.LookRotation(Vector3.forward);
+            AudioManager.Instance.PlayClip("Footsteps");
         }
         if (moveDownButton.IsPressed)
         {
             velocity.z += playerMovementSpeed;
             transform.rotation = Quaternion.LookRotation(-Vector3.forward);
+            AudioManager.Instance.PlayClip("Footsteps");
         }
         if (moveLeftButton.IsPressed)
         {
             velocity.x += playerMovementSpeed;
             transform.rotation = Quaternion.LookRotation(-Vector3.right);
+            AudioManager.Instance.PlayClip("Footsteps");
         }
         if (moveRightButton.IsPressed)
         {
             velocity.x -= playerMovementSpeed;
             transform.rotation = Quaternion.LookRotation(Vector3.right);
+            AudioManager.Instance.PlayClip("Footsteps");
         }
 
         rb.velocity = velocity * Time.deltaTime;

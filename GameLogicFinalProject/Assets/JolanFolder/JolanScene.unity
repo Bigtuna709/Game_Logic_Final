@@ -369,29 +369,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36a5f511b0d8142cba0aeb92d0b264c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  productId: com.group2.afraidofthedark.extraHealth
-  buttonType: 0
-  consumePurchase: 1
-  onPurchaseComplete:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 870315396}
-        m_MethodName: OnMaxHealthIncreasePurchased
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  onPurchaseFailed:
-    m_PersistentCalls:
-      m_Calls: []
-  titleText: {fileID: 1803902372}
-  descriptionText: {fileID: 0}
-  priceText: {fileID: 1227911991}
 --- !u!114 &36814437
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -712,29 +689,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36a5f511b0d8142cba0aeb92d0b264c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  productId: com.group2.afraidofthedark.SuperSpeed
-  buttonType: 0
-  consumePurchase: 1
-  onPurchaseComplete:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 870315396}
-        m_MethodName: OnMaxSpeedIncreasedPurchased
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  onPurchaseFailed:
-    m_PersistentCalls:
-      m_Calls: []
-  titleText: {fileID: 1646829277}
-  descriptionText: {fileID: 0}
-  priceText: {fileID: 977206961}
 --- !u!114 &89429176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3463,29 +3417,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36a5f511b0d8142cba0aeb92d0b264c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  productId: com.group2.afraidofthedark.brighterLight
-  buttonType: 0
-  consumePurchase: 1
-  onPurchaseComplete:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 870315396}
-        m_MethodName: OnMaxIntensityIncreasePurchased
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  onPurchaseFailed:
-    m_PersistentCalls:
-      m_Calls: []
-  titleText: {fileID: 985474830}
-  descriptionText: {fileID: 0}
-  priceText: {fileID: 2015740905}
 --- !u!114 &1081765502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5093,7 +5024,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 0b91cb55a2233f34fae1eca4d0430b68, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 3d3bdc4d77c171b4d881dc6c78834845, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.2
   m_Pitch: 1
@@ -5192,7 +5123,49 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   persistOnSceneLoad: 1
-  audioData: []
+  audioData:
+  - name: ButtonClick
+    audioClip: {fileID: 8300000, guid: 9713cbee8ad4d734fa755ca0ecb2d3c2, type: 3}
+    pitch: 0.5
+    volume: 0.5
+    loop: 0
+    audioSource: {fileID: 0}
+  - name: ElectricSound
+    audioClip: {fileID: 8300000, guid: be58c944e6e50e14a884e45adb115cbc, type: 3}
+    pitch: 0.5
+    volume: 0.5
+    loop: 0
+    audioSource: {fileID: 0}
+  - name: MouseHurt
+    audioClip: {fileID: 8300000, guid: 11724945b94c9004699bdef93dc35c73, type: 3}
+    pitch: 0.5
+    volume: 0.5
+    loop: 0
+    audioSource: {fileID: 0}
+  - name: Footsteps
+    audioClip: {fileID: 8300000, guid: e552ac7a7b9c9b24c8d9a4808661c926, type: 3}
+    pitch: 0.5
+    volume: 0.5
+    loop: 0
+    audioSource: {fileID: 0}
+  - name: MouseTrap
+    audioClip: {fileID: 8300000, guid: b0c90278e205d9247a207eb671de4e6b, type: 3}
+    pitch: 0.5
+    volume: 0.5
+    loop: 0
+    audioSource: {fileID: 0}
+  - name: LabAmb
+    audioClip: {fileID: 8300000, guid: f17aa7871c8ce514c9390f6d70f24afc, type: 3}
+    pitch: 0.5
+    volume: 0.3
+    loop: 1
+    audioSource: {fileID: 0}
+  - name: CheeseMunch
+    audioClip: {fileID: 8300000, guid: f218b38c6d1a1a1448c3c39ae9ee7d20, type: 3}
+    pitch: 0.5
+    volume: 0.3
+    loop: 0
+    audioSource: {fileID: 0}
   backGroundMusic: {fileID: 1671900110}
 --- !u!4 &1671900112
 Transform:

@@ -22,6 +22,7 @@ public class MouseTrap : MonoBehaviour
             if (!isSprung)
             {
                 // Checks if it is sprung and deals damage if its not
+                AudioManager.Instance.PlayClip("MouseTrap");
                 Instantiate(sparksParticle, this.transform.position, sparksParticle.transform.rotation);
                 animator.SetBool("isSprung", true);
                 isSprung = true;

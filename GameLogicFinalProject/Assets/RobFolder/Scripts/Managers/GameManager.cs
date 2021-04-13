@@ -79,6 +79,8 @@ public class GameManager : Singleton<GameManager>
         }
 
         livesTextField.text = "Lives: " + totalLives.ToString();
+        AudioManager.Instance.PlayClip("LabAmb");
+        AudioManager.Instance.backGroundMusic.volume = 0.05f;
     }
     private void FixedUpdate()
     {
@@ -90,6 +92,7 @@ public class GameManager : Singleton<GameManager>
         else
         {
             StartCoroutine(LowerHealthOverTime());
+            AudioManager.Instance.PlayClip("MouseHurt");
         }
     }
     // Lower the player's light range over time
@@ -165,6 +168,7 @@ public class GameManager : Singleton<GameManager>
             healthBarSlider.value = totalHealth;
             IsPlayerDead();
         }
+        AudioManager.Instance.PlayClip("MouseHurt");
         //healthbarAnimator.SetBool("isShaking", false);
     }
 

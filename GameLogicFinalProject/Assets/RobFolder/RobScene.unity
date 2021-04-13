@@ -2245,6 +2245,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 960826890}
     m_Modifications:
+    - target: {fileID: 781306571466067333, guid: c7c2910b9bddf7245b4e7dd2455d3fe1,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4857400604511873099, guid: c7c2910b9bddf7245b4e7dd2455d3fe1,
         type: 3}
       propertyPath: m_RootOrder
@@ -2304,6 +2309,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RatTrapParticle
+      objectReference: {fileID: 0}
+    - target: {fileID: 7914750105781734709, guid: c7c2910b9bddf7245b4e7dd2455d3fe1,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7c2910b9bddf7245b4e7dd2455d3fe1, type: 3}

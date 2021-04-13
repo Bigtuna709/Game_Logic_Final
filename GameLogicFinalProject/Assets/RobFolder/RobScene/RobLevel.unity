@@ -12024,7 +12024,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1211011778}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -147.7, y: 0.5, z: 196.5}
+  m_LocalPosition: {x: -75.9, y: 0.5, z: 160.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 463143043}
@@ -12091,7 +12091,7 @@ MonoBehaviour:
     type: 3}
   largeBatteryPickUp: {fileID: 1781461226983134322, guid: aff6f1b4445a2b144a1a2c869b09852d,
     type: 3}
-  ratTrap: {fileID: 7229012018854084336, guid: 7a0637f9329239245ae714858c144853, type: 3}
+  ratTrap: {fileID: 2000974277392451882, guid: ed54b8d3c4e499a4a9804707639308de, type: 3}
   numOfSmallBatteriesToMake: 5
   numOfLargeBatteriesToMake: 5
   numOfCheeseToMake: 5
