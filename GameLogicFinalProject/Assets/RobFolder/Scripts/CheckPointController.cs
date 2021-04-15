@@ -10,6 +10,10 @@ public class CheckPointController : MonoBehaviour
     public Animator areaOneDoorAnimator;
     public Animator areaTwoDoorAnimator;
 
+    public GameObject checkPointCanvas1;
+    public GameObject checkPointCanvas2;
+
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Player"))
@@ -20,6 +24,7 @@ public class CheckPointController : MonoBehaviour
             var state = GameManager.Instance.allCheckPoints.FirstOrDefault(x => x.gameState == gameState);
             if(state != null && state.gameState != GameState.Area3)
             {
+                StartCoroutine(TurnOffCheckPointCanvasAfterTime(checkPointCanvas1));
                 ChangeGameState(state);
                 areaOneDoorAnimator.SetBool("isClosed", true);
 
@@ -31,6 +36,7 @@ public class CheckPointController : MonoBehaviour
             }
             else
             {
+                StartCoroutine(TurnOffCheckPointCanvasAfterTime(checkPointCanvas2));
                 ChangeGameState(state);
                 areaTwoDoorAnimator.SetBool("isClosed", true);
 
@@ -53,8 +59,14 @@ public class CheckPointController : MonoBehaviour
         PickUpsManager.Instance.RemovePreviousAreaPickUps(ObjectPoolManager.Instance.allSmallBatteriesCreated);
         PickUpsManager.Instance.RemovePreviousAreaPickUps(ObjectPoolManager.Instance.allLargeBatteriesCreated);
         GameManager.Instance.totalLives++;
+        GameManager.Instance.livesTextField.text = GameManager.Instance.totalLives.ToString();
     }
 
-
+    IEnumerator TurnOffCheckPointCanvasAfterTime(GameObject canvas)
+    {
+        canvas.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        canvas.SetActive(false);
+    }
 
 }
