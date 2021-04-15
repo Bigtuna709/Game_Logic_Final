@@ -22,31 +22,37 @@ public class PauseMenu : MonoBehaviour
 
     public void PauseGame()
     {
-            Time.timeScale = 0f;
+        AudioManager.Instance.PlayClip("ButtonClick");
+        Time.timeScale = 0f;
             pauseMenuCanvas.SetActive(true);
-            IsGamePaused = true;   
+            IsGamePaused = true;
     }
 
     public void ResumeGame()
     {
-            Time.timeScale = 1f;
+        AudioManager.Instance.PlayClip("ButtonClick");
+        Time.timeScale = 1f;
             pauseMenuCanvas.SetActive(false);
             IsGamePaused = true;
+
     }
 
     public void RestartGame()
     {
+        AudioManager.Instance.PlayClip("ButtonClick");
         SceneManager.LoadScene("TerryScene");
         Time.timeScale = 1f;
     }
     public void RestartRobScene()
     {
+        AudioManager.Instance.PlayClip("ButtonClick");
         SceneManager.LoadScene("RobLevel");
         Time.timeScale = 1f;
     }
 
     public void MainMenuScene()
     {
+        AudioManager.Instance.PlayClip("ButtonClick");
         SceneManager.LoadScene("JolanScene");
     }
 }

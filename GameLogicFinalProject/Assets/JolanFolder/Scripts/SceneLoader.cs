@@ -13,6 +13,7 @@ public class SceneLoader : Singleton<SceneLoader>
 
     public void LoadScene()
     {
+        AudioManager.Instance.PlayClip("ButtonClick");
         SceneManager.LoadScene("RobLevel");
         GameManager.Instance.gameState = GameState.Area1;
         GameManager.Instance.playerRespawnPoint = GameManager.Instance.areaOneSpawnPoint;
@@ -20,8 +21,20 @@ public class SceneLoader : Singleton<SceneLoader>
         //playerController.transform.position = GameManager.Instance.areaOneSpawnPoint.position;
     }
 
+    public void PlayClipOnButtonClick()
+    {
+        AudioManager.Instance.PlayClip("ButtonClick");
+    }
+
     public void LoadStartScene()
     {
+        AudioManager.Instance.PlayClip("ButtonClick");
         SceneManager.LoadScene("TerryScene");
+    }
+
+    // Leave the game.
+    public void QuiGame()
+    {
+        Application.Quit();
     }
 }

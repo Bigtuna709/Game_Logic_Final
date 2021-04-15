@@ -36,6 +36,7 @@ public class TipsTriggerScript : MonoBehaviour
 
     public void BackButtonPressed()
     {
+        AudioManager.Instance.PlayClip("ButtonClick");
         Time.timeScale = 1;
         tipsCanvas.SetActive(false);
     }
