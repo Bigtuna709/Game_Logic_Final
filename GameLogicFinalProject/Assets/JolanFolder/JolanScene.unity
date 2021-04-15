@@ -5133,7 +5133,7 @@ MonoBehaviour:
   - name: ElectricSound
     audioClip: {fileID: 8300000, guid: be58c944e6e50e14a884e45adb115cbc, type: 3}
     pitch: 0.5
-    volume: 0.5
+    volume: 1
     loop: 0
     audioSource: {fileID: 0}
   - name: MouseHurt
@@ -5145,7 +5145,7 @@ MonoBehaviour:
   - name: Footsteps
     audioClip: {fileID: 8300000, guid: e552ac7a7b9c9b24c8d9a4808661c926, type: 3}
     pitch: 0.5
-    volume: 0.5
+    volume: 1
     loop: 0
     audioSource: {fileID: 0}
   - name: MouseTrap

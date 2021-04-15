@@ -81,6 +81,7 @@ public class GameManager : Singleton<GameManager>
         livesTextField.text = "Lives: " + totalLives.ToString();
         AudioManager.Instance.PlayClip("LabAmb");
         AudioManager.Instance.backGroundMusic.volume = 0.05f;
+        AudioManager.Instance.backGroundMusic.pitch = 2f;
     }
     private void FixedUpdate()
     {
