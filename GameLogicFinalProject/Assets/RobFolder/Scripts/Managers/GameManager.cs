@@ -50,8 +50,12 @@ public class GameManager : Singleton<GameManager>
     {
         analyticsCtrler = FindObjectOfType<AnalyticsController>();
         maxPlayerHealth += IAPTemp.Instance.newMaxHealth;
-        if(maxPlayerHealth > 200)
+        healthBarSlider.maxValue = maxPlayerHealth;
+        healthBarSlider.value = maxPlayerHealth;
+        if (maxPlayerHealth > 200 && healthBarSlider.value > 200)
         {
+            healthBarSlider.maxValue = 200;
+            healthBarSlider.value = 200;
             maxPlayerHealth = 200;
         }
         totalHealth = maxPlayerHealth;
