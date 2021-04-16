@@ -24,6 +24,7 @@ public class CheckPointController : MonoBehaviour
             var state = GameManager.Instance.allCheckPoints.FirstOrDefault(x => x.gameState == gameState);
             if(state != null && state.gameState != GameState.Area3)
             {
+                //Turns on the checkpoints canavas
                 StartCoroutine(TurnOffCheckPointCanvasAfterTime(checkPointCanvas1));
                 ChangeGameState(state);
                 areaOneDoorAnimator.SetBool("isClosed", true);
@@ -36,6 +37,7 @@ public class CheckPointController : MonoBehaviour
             }
             else
             {
+                //Turns on the checkpoints canavas
                 StartCoroutine(TurnOffCheckPointCanvasAfterTime(checkPointCanvas2));
                 ChangeGameState(state);
                 areaTwoDoorAnimator.SetBool("isClosed", true);
@@ -52,6 +54,7 @@ public class CheckPointController : MonoBehaviour
 
     private void ChangeGameState(CheckPointController state)
     {
+        // Removes all the pick ups from the previous area
         GameManager.Instance.gameState = state.gameState;
         Debug.Log("<color=cyan>You reached " + state.gameState + " checkpoint!</color>");
         PickUpsManager.Instance.RemovePreviousAreaPickUps(ObjectPoolManager.Instance.allCheeseCreated);

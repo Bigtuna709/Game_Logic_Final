@@ -35,6 +35,7 @@ public class MouseTrap : MonoBehaviour
 
     public IEnumerator ResetTrap()
     {
+        // Resets the trap
         yield return new WaitForSeconds(trapResetTimer);
         isSprung = false;
     }

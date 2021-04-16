@@ -10,6 +10,7 @@ public class AudioManager : Singleton<AudioManager>
 
     private void Start()
     {
+        // Give each audio clip its ouwn source
         foreach(Audio audio in audioData)
         {
             audio.audioSource = gameObject.AddComponent<AudioSource>();
@@ -22,6 +23,7 @@ public class AudioManager : Singleton<AudioManager>
         backGroundMusic.Play();
     }
 
+    // call this with the string name of the clip to play
     public void PlayClip(string name)
     {
         Audio a = Array.Find(audioData, clip => clip.name == name);
@@ -32,7 +34,7 @@ public class AudioManager : Singleton<AudioManager>
         }
         a.audioSource.Play();
     }
-
+    // call this with the string name of the clip to stop
     public void StopCLip(string name)
     {
         Audio a = Array.Find(audioData, clip => clip.name == name);

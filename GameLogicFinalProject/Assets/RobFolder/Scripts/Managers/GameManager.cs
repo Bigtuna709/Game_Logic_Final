@@ -48,6 +48,7 @@ public class GameManager : Singleton<GameManager>
 
     private void Start()
     {
+        // Sets the player's light and health levels to the appropriate int
         analyticsCtrler = FindObjectOfType<AnalyticsController>();
         maxPlayerHealth += IAPTemp.Instance.newMaxHealth;
         healthBarSlider.maxValue = maxPlayerHealth;
@@ -65,6 +66,7 @@ public class GameManager : Singleton<GameManager>
         {
             playerLight.intensity = 0.6f;
         }
+        //Sets the first spawn point
         player = FindObjectOfType<PlayerController>();
         if (tutorialSpawnPoint != null)
         {
@@ -81,7 +83,7 @@ public class GameManager : Singleton<GameManager>
         {
             hud.SetActive(true);
         }
-
+        //Starts background audio
         livesTextField.text = "Lives: " + totalLives.ToString();
         AudioManager.Instance.PlayClip("LabAmb");
         AudioManager.Instance.backGroundMusic.volume = 0.05f;
@@ -227,6 +229,8 @@ public class GameManager : Singleton<GameManager>
         }
         else
         {
+
+            //Game over
             gameOverCanvas.SetActive(true);
             Time.timeScale = 0;
             Debug.Log("<color=red>Game Over</color>");
@@ -235,6 +239,7 @@ public class GameManager : Singleton<GameManager>
 
     public void OnExtralifeGained()
     {
+        //Gives an extra life and spawn the player to the right location
         if(gameState != GameState.Tutorial)
         {
             gameState = GameState.Area1;

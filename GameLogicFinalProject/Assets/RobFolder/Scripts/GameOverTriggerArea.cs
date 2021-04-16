@@ -8,7 +8,6 @@ public class GameOverTriggerArea : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            //GameManager.Instance.GameOver();
             SceneLoader.Instance.LoadScene();
             GameManager.Instance.gameState = GameState.Area1;
         }

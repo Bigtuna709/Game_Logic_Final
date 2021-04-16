@@ -49,6 +49,7 @@ public class EnemyController : MonoBehaviour
 
     private void ChooseRandomDestinationOrNot()
     {
+        //Choose whether or not the AI chooses random checkpoints
         animator.SetBool("isChasingPlayer", false);
         if (!chooseRandomDestination)
         {
@@ -63,13 +64,14 @@ public class EnemyController : MonoBehaviour
     public void SpotPlayerTarget()
     {
         npcAgent.destination = npcCheckPoints[checkPointDestination].position;
-        
+        // Uses raycast to detect player
         RaycastHit hit;
         Debug.DrawRay(enemyEyes.transform.position, playerTarget.transform.position - enemyEyes.transform.position, Color.red, 10f);
         if(Physics.Raycast(enemyEyes.transform.position, playerTarget.transform.position - enemyEyes.transform.position, out hit))
         {
             if(hit.transform.CompareTag("Player"))
             {
+                // Turn on the "munch" animation if the player is spotted
                 if (animator.GetBool("isChasingPlayer") == false)
                 {
                     animator.SetBool("isChasingPlayer", true);
@@ -80,6 +82,7 @@ public class EnemyController : MonoBehaviour
     }
     private IEnumerator RandomDestination()
     {
+        //Picks a random checkpoint for the AI
         TurnOffMunching();
         npcAgent.destination = npcCheckPoints[checkPointDestination].position;
         float distance = Vector3.Distance(npcCheckPoints[checkPointDestination].position, transform.position);
@@ -94,6 +97,7 @@ public class EnemyController : MonoBehaviour
 
     public void TurnOffMunching()
     {
+        //Turns off the enemy "munch" animation
         if (animator.GetBool("isChasingPlayer") == true)
         {
             animator.SetBool("isChasingPlayer", false);
@@ -102,6 +106,7 @@ public class EnemyController : MonoBehaviour
 
     private IEnumerator NotRandomDestination()
     {
+        //The enemy will cycle through its checkpoints
         TurnOffMunching();
         npcAgent.destination = npcCheckPoints[checkPointDestination].position;
         float distance = Vector3.Distance(npcCheckPoints[checkPointDestination].position, transform.position);
@@ -121,6 +126,7 @@ public class EnemyController : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Player"))
         {
+            //Check to see if it hit the player and adds damage
             Debug.Log("<color=red>Enemy hit player!</color>");
             StartCoroutine(GameManager.Instance.PlayerTakeDamage(enemyDamage));
         }
