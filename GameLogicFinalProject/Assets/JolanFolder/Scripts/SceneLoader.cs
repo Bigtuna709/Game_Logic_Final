@@ -25,7 +25,7 @@ public class SceneLoader : Singleton<SceneLoader>
     {
         AudioManager.Instance.PlayClip("ButtonClick");
     }
-
+    
     public void LoadStartScene()
     {
         AudioManager.Instance.PlayClip("ButtonClick");
