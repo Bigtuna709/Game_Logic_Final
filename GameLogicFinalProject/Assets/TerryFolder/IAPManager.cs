@@ -26,6 +26,7 @@ public class IAPManager : MonoBehaviour
         pController = FindObjectOfType<PlayerController>();
     }
 
+    //When you purchase Light Intensity non-consumable
     public void OnMaxIntensityIncreasePurchased()
     {
         IAPTemp.Instance.newMaxLight = 1.2f;
@@ -37,6 +38,7 @@ public class IAPManager : MonoBehaviour
        
     }
 
+    //When you purchase 2x health non-consumable
     public void OnMaxHealthIncreasePurchased()
     {
         IAPTemp.Instance.newMaxHealth = 100;
@@ -47,6 +49,8 @@ public class IAPManager : MonoBehaviour
         extraHealthButton.interactable = false;
     }
 
+
+    //When you purchase 2x speed non-consumable
     public void OnMaxSpeedIncreasedPurchased()
     {
         IAPTemp.Instance.newMaxSpeed = 250;
