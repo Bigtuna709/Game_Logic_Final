@@ -11,6 +11,7 @@ public class SceneLoader : Singleton<SceneLoader>
         playerController = FindObjectOfType<PlayerController>();
     }
 
+    //Loads Robert's Scene (Level 1)
     public void LoadScene()
     {
         AudioManager.Instance.PlayClip("ButtonClick");
@@ -21,11 +22,13 @@ public class SceneLoader : Singleton<SceneLoader>
         //playerController.transform.position = GameManager.Instance.areaOneSpawnPoint.position;
     }
 
+    //Calls the button click sound for buttons that can't get the reference for AudioManager
     public void PlayClipOnButtonClick()
     {
         AudioManager.Instance.PlayClip("ButtonClick");
     }
-    
+
+    //Loads Terry's scene (tutorial scene)
     public void LoadStartScene()
     {
         AudioManager.Instance.PlayClip("ButtonClick");
