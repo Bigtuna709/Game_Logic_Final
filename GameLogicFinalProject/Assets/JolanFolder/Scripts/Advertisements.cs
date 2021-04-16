@@ -42,6 +42,7 @@ public class Advertisements : MonoBehaviour, IUnityAdsListener
     }
     public void OnUnityAdsDidFinish(string placementId, ShowResult showResult)
     {
+        //if successfully completed, +1 life and update the text field for total lives.
         if(showResult == ShowResult.Finished)
         {
             Debug.Log("You have successfully gained a single life.");
