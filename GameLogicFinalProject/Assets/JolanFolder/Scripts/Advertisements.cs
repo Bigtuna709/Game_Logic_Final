@@ -5,20 +5,25 @@ using UnityEngine.Advertisements;
 
 public class Advertisements : MonoBehaviour, IUnityAdsListener
 {
+    //GameID found in Unity Dashboard
     string gameID = "4073392";
+    //Test mode to be set to true.
     bool testMode = true;
 
+    //Name of the PlacementId for the reward video
     public string placementIdRewardVideo = "AOTDReward1";
     
 
     void Start()
     {
         Advertisement.AddListener(this);
-
+        //Searches GameID & TestMode and calls them
         Advertisement.Initialize(gameID, testMode);
 
     }
-
+    /// <summary>
+    /// When Ad is ready play PlacementIdRewardVideo
+    /// </summary>
     public void ShowRewardVideo()
     {
         if(Advertisement.IsReady(placementIdRewardVideo))
