@@ -11,6 +11,10 @@ public class TutorialTrigger2 : MonoBehaviour
         tipsScript = FindObjectOfType<TipsTriggerScript>();
     }
 
+    /// <summary>
+    /// Trigger for maze tutorial pop up window
+    /// </summary>
+    /// <param name="other"></param>
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))

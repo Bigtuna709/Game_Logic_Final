@@ -11,6 +11,10 @@ public class TutorialTrigger1 : MonoBehaviour
         tipsScript = FindObjectOfType<TipsTriggerScript>();
     }
 
+    /// <summary>
+    /// Trigger for roombot tutorial pop up window
+    /// </summary>
+    /// <param name="other"></param>
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.CompareTag("Player"))

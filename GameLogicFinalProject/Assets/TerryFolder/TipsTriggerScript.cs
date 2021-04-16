@@ -9,6 +9,7 @@ public class TipsTriggerScript : MonoBehaviour
     public GameObject roombotTips;
     public GameObject mazeTips;
 
+    //Turns on the battery tip at start
     private void Start()
     {
         tipsCanvas.SetActive(true);
@@ -16,6 +17,7 @@ public class TipsTriggerScript : MonoBehaviour
         Time.timeScale = 0;
     }
 
+    //Turns on the roombot tips when trigger is hit
     public void OnRoombotTipTriggerHit()
     {
         batteryTips.SetActive(false);
@@ -25,6 +27,7 @@ public class TipsTriggerScript : MonoBehaviour
         Time.timeScale = 0;
     }
 
+    //Turns on the maze tips when trigger is hit
     public void OnMazeTipTriggerHit()
     {
         batteryTips.SetActive(false);
@@ -34,6 +37,7 @@ public class TipsTriggerScript : MonoBehaviour
         Time.timeScale = 0;
     }
 
+    //Closes the tips window
     public void BackButtonPressed()
     {
         AudioManager.Instance.PlayClip("ButtonClick");

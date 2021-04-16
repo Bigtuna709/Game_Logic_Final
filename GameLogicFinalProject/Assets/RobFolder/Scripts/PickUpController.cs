@@ -26,6 +26,8 @@ public class PickUpController : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+
+        //If the player touches a pick up, depending on its tag it will reward the player and play the appropriate particle effect
         if (other.gameObject.CompareTag("Player") && !isPickedUp)
         {
             StartCoroutine(GameManager.Instance.RewardPlayer(this));
